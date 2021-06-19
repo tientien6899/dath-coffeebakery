@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="22dp"
+    android:layout_marginRight="22dp"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/tapchi_hinhanh"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"/>
+
+    <TextView
+        android:id="@+id/tapchi_tieude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Công thức bí mật tạo nên những ly cà phê tuyệt vời"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:maxLength="80"
+        android:maxLines="2"
+        android:layout_marginTop="7dp"
+        android:paddingRight="10dp"
+        android:gravity="center|left"/>
+
+</LinearLayout>

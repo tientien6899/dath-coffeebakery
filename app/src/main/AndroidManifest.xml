@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.coffeebakery">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Setting.AboutUsActivity"></activity>
+        <activity android:name=".Setting.DoiMatKhauActivity" />
+        <activity android:name=".DanhMuc.ToppingActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DanhMuc.FoodActivity" />
+        <activity android:name=".DanhMuc.JuiceActivity" />
+        <activity android:name=".DanhMuc.FreezeeActivity" />
+        <activity android:name=".DanhMuc.CoffeeActivity" />
+        <activity android:name=".Setting.ThanhToanActivity" />
+        <activity android:name=".Setting.VanChuyenActivity" />
+        <activity android:name=".Setting.ChungActivity" />
+        <activity android:name=".Setting.BaoMatActivity" />
+        <activity android:name=".Setting.LienHeActivity" />
+        <activity android:name=".Home.DetailTapChiActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_api_key" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".DeliveryActivity" />
+        <activity android:name=".DetailReceipt.DetailReceiptActivity" />
+        <activity android:name=".DetailProductActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+    </application>
+
+</manifest>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:id="@+id/img_DetailReceipt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="20dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="x"
+                android:gravity="center|top"
+                android:textSize="14sp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="30dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_Detail_Soluong"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="10"
+                android:gravity="center|top"
+                android:textSize="14sp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/txt_Detail_TenMon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="ten mon an"
+                android:textSize="14sp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_Detail_Dongia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="20000"
+                android:textSize="14sp"
+                android:gravity="right"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

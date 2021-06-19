@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">CoffeeBakery</string>
+
+    <string name="title_trangchu">Trang chủ</string>
+    <string name="title_sanpham">Sản phẩm</string>
+    <string name="title_giohang">Giỏ hàng</string>
+    <string name="title_caidat">Cài đặt</string>
+    <string name="map_api_key">AIzaSyC2_AXZDLJQjjKKJtCG1Gijz2WQLLMlAZI</string>
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android" tools:ignore="MissingTranslation">
+        <item android:id="@+id/navigation_trangchu" android:title="@string/title_trangchu" />
+        <item android:id="@+id/navigation_sanpham" android:title="@string/title_menu" />
+        <item android:id="@+id/navigation_giohang" android:title="@string/title_giohang" />
+        <item android:id="@+id/navigation_caidat" android:title="@string/title_caidat" />
+    </menu>
+
+</resources>

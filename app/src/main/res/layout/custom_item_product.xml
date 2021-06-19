@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="22dp"
+    android:layout_marginTop="19dp"
+    android:layout_marginRight="22dp"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_Hinhsp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/tradaodaxay" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_Tensp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:hint="Trà xanh đá xay"
+                android:textColor="@color/gray"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_Mota"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:hint="Green Tea Ice Blended"
+                android:textColor="@color/gray"
+                android:textSize="12.5dp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_GiaspS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:hint="50.000"
+                android:textColor="@color/green"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:text="đ"
+                android:textColor="@color/green"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_marginTop="7dp"
+        android:background="@color/green" />
+
+</LinearLayout>

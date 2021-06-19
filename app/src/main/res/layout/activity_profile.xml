@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:text="Thông tin tài khoản"
+                android:textColor="@color/green"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_Dongy"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="22dp"
+                android:background="@drawable/button_luu"
+                android:text="Lưu"
+                android:textAllCaps="false"
+                android:textColor="@color/blue"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_Avatar"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_outline_image_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Họ tên"
+                    android:textColor="@color/gray"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edt_hoten"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="22dp"
+                    android:paddingLeft="20dp"
+                    android:background="@drawable/edt_ghichu"
+                    android:hint="Nhập họ tên"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Số điện thoại"
+                    android:textColor="@color/gray"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edt_sdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="22dp"
+                    android:background="@drawable/edt_ghichu"
+                    android:hint="Nhập số điện thoại"
+                    android:inputType="phone"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Địa chỉ"
+                    android:textColor="@color/gray"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/edt_Diachi"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="22dp"
+                    android:background="@drawable/edt_ghichu"
+                    android:hint="Nhập tên sản phẩm ..."
+                    android:inputType="text"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Tên đăng nhập"
+                    android:textColor="@color/gray"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:id="@+id/txt_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="22dp"
+                    android:background="@drawable/edt_ghichu"
+                    android:inputType="number"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Setting.LienHeActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/img_Backlienhe"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_outline_keyboard_backspace_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Thông tin liên hệ"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+<!--        ten cua hang-->
+        <TextView
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Tên cửa hàng"
+            android:gravity="center|left"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:textSize="20sp"
+            android:id="@+id/lienhe_tencuahang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+
+<!--        email cua hang-->
+        <TextView
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Email"
+            android:gravity="center|left"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:textSize="20sp"
+            android:id="@+id/lienhe_emailcuahang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <!--        sdt cua hang-->
+        <TextView
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="SĐT"
+            android:gravity="center|left"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:textSize="20sp"
+            android:id="@+id/lienhe_sdtcuahang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <!--        dia chi cua hang-->
+        <TextView
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Địa chỉ"
+            android:gravity="center|left"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:textSize="20sp"
+            android:id="@+id/lienhe_diachicuahang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <!--        ghi chu cua hang-->
+        <TextView
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Ghi chú"
+            android:gravity="center|left"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:textSize="20sp"
+            android:id="@+id/lienhe_ghichucuahang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
