@@ -45,7 +45,7 @@ public class ProductFragment extends Fragment {
         mData = FirebaseDatabase.getInstance().getReference();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         productArrayList = new ArrayList<Product>();
-        mData.child("SanPham").addListenerForSingleValueEvent(new ValueEventListener() {
+        mData.child("Sản Phẩm").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){

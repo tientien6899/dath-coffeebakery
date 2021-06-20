@@ -22,6 +22,7 @@ import com.example.coffeebakery.DanhMuc.CoffeeActivity;
 import com.example.coffeebakery.DanhMuc.FoodActivity;
 import com.example.coffeebakery.DanhMuc.FreezeeActivity;
 import com.example.coffeebakery.DanhMuc.JuiceActivity;
+import com.example.coffeebakery.DanhMuc.ToppingActivity;
 import com.example.coffeebakery.Product.Product;
 import com.example.coffeebakery.Product.ProductAdapter;
 import com.example.coffeebakery.R;
@@ -49,7 +50,7 @@ public class HomeFragment extends Fragment {
     ArrayList<TapChi> tapChiArrayList;
 
     private DatabaseReference NewData;
-    ImageView caphe, freezee, juice, food;
+    ImageView caphe, freezee, juice, food, topping;
 
     public HomeFragment(){
 
@@ -89,19 +90,12 @@ public class HomeFragment extends Fragment {
         newsp.setLayoutManager(new LinearLayoutManager(v.getContext(), LinearLayoutManager.HORIZONTAL, false));
         newsp.setItemAnimator(new DefaultItemAnimator());
         newProductArrayList = new ArrayList<Product>();
-        NewData.child("SanPham").addListenerForSingleValueEvent(new ValueEventListener() {
+        NewData.child("Sản Phẩm").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
                     Product p = snap.getValue(Product.class);
-                    String temp_ngay_dang = p.getNgaydang();
-                    int truoc = temp_ngay_dang.indexOf("-") + 1;
-                    int sau = temp_ngay_dang.lastIndexOf("-");
-                    String temp = temp_ngay_dang;
-                    String ngaydang = temp.substring(truoc,sau);
-                    Calendar ca = Calendar.getInstance();
-                    int month = ca.get(Calendar.MONTH) + 1;
-                    if(Integer.parseInt(ngaydang) == month)
+                    if(p.getSPMoi())
                         newProductArrayList.add(p);
 
                 }
@@ -122,7 +116,7 @@ public class HomeFragment extends Fragment {
         banchay.setLayoutManager(new LinearLayoutManager(v.getContext(), LinearLayoutManager.HORIZONTAL, false));
         banchay.setItemAnimator(new DefaultItemAnimator());
         banchayArrayList = new ArrayList<Product>();
-        NewData.child("SanPham").addListenerForSingleValueEvent(new ValueEventListener() {
+        NewData.child("Sản Phẩm").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
@@ -203,6 +197,16 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        topping = v.findViewById(R.id.danhmuc_topping);
+        topping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ToppingActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return v;
+
     }
 }

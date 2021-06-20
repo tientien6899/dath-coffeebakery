@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.coffeebakery.CSKHActivity;
 import com.example.coffeebakery.LoginActivity;
 import com.example.coffeebakery.Profile;
 import com.example.coffeebakery.ProfileActivity;
@@ -77,6 +78,16 @@ public class SettingFragment extends Fragment {
             public void onClick(View v) {
                 Context context = v.getContext();
                 Intent intent = new Intent(context, AboutUsActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+        lienhecskh = v.findViewById(R.id.Setting_Lienhecskh);
+        lienhecskh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                Intent intent = new Intent(context, CSKHActivity.class);
                 context.startActivity(intent);
             }
         });

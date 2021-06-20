@@ -32,7 +32,7 @@
                 android:id="@+id/btn_Dongy"
                 android:layout_width="80dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_gravity="bottom|right"
                 android:layout_marginRight="22dp"
                 android:background="@drawable/button_luu"
                 android:text="Lưu"

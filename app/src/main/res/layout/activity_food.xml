@@ -19,7 +19,7 @@
             android:layout_marginLeft="22dp"
             android:layout_marginTop="30dp"
             android:layout_weight="1"
-            android:text="Thức ăn"
+            android:text="Bánh ngọt"
             android:textColor="@color/green"
             android:textSize="30sp"
             android:textStyle="bold" />
