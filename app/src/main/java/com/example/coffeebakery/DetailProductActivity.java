@@ -83,18 +83,18 @@ public class DetailProductActivity extends AppCompatActivity {
                     int temp_ssl = s * sl;
                     if(temp_ssl >= 1000000){
                         temp_ssl = temp_ssl / 1000000;
-                        tongtien.setText(temp_ssl + ".000.000 ");
+                        tongtien.setText(temp_ssl + ".000.000");
                     } else if(temp_ssl >= 1000){
                         temp_ssl = temp_ssl / 1000;
-                        tongtien.setText(temp_ssl + ".000 ");
+                        tongtien.setText(temp_ssl + ".000");
                     }
                     int temp_s = s;
                     if(temp_s >= 1000000){
                         temp_s = temp_s / 1000000;
-                        txt_detailgiasp.setText(temp_s + ".000.000 ");
+                        txt_detailgiasp.setText(temp_s + ".000.000");
                     } else if(temp_s >= 1000){
                         temp_s = temp_s / 1000;
-                        txt_detailgiasp.setText(temp_s + ".000 ");
+                        txt_detailgiasp.setText(temp_s + ".000");
                     }
                     kichthuoc = "Nhỏ (S)";
                 }
@@ -109,18 +109,18 @@ public class DetailProductActivity extends AppCompatActivity {
                     int temp_msl = m * sl;
                     if(temp_msl >= 1000000){
                         temp_msl = temp_msl / 1000000;
-                        tongtien.setText(temp_msl + ".000.000 ");
+                        tongtien.setText(temp_msl + ".000.000");
                     } else if(temp_msl >= 1000){
                         temp_msl = temp_msl / 1000;
-                        tongtien.setText(temp_msl + ".000 ");
+                        tongtien.setText(temp_msl + ".000");
                     }
                     int temp_m = m;
                     if(temp_m >= 1000000){
                         temp_m = temp_m / 1000000;
-                        txt_detailgiasp.setText(temp_m + ".000.000 ");
+                        txt_detailgiasp.setText(temp_m + ".000.000");
                     } else if(temp_m >= 1000){
                         temp_m = temp_m / 1000;
-                        txt_detailgiasp.setText(temp_m + ".000 ");
+                        txt_detailgiasp.setText(temp_m + ".000");
                     }
                     kichthuoc = "Vừa (M)";
                 }
@@ -137,18 +137,18 @@ public class DetailProductActivity extends AppCompatActivity {
                     int temp_lsl = l * sl;
                     if(temp_lsl >= 1000000){
                         temp_lsl = temp_lsl / 1000000;
-                        tongtien.setText(temp_lsl + ".000.000 ");
+                        tongtien.setText(temp_lsl + ".000.000");
                     } else if(temp_lsl >= 1000){
                         temp_lsl = temp_lsl / 1000;
-                        tongtien.setText(temp_lsl + ".000 ");
+                        tongtien.setText(temp_lsl + ".000");
                     }
                     int temp_l = l;
                     if(temp_l >= 1000000){
                         temp_l = temp_l / 1000000;
-                        txt_detailgiasp.setText(temp_l + ".000.000 ");
+                        txt_detailgiasp.setText(temp_l + ".000.000");
                     } else if(temp_l >= 1000){
                         temp_l = temp_l / 1000;
-                        txt_detailgiasp.setText(temp_l + ".000 ");
+                        txt_detailgiasp.setText(temp_l + ".000");
                     }
                     kichthuoc = "Lớn (L)";
                 }
@@ -197,10 +197,10 @@ public class DetailProductActivity extends AppCompatActivity {
                     temp = Integer.parseInt(String.valueOf(s)) * ab;
                     if(temp >= 1000000){
                         temp = temp / 1000000;
-                        tongtien.setText(temp + ".000.000 ");
+                        tongtien.setText(temp + ".000.000");
                     }else if(temp >= 1000){
                         temp = temp / 1000;
-                        tongtien.setText(temp + ".000 ");
+                        tongtien.setText(temp + ".000");
                     }
                 }
 
@@ -208,20 +208,20 @@ public class DetailProductActivity extends AppCompatActivity {
                     temp = Integer.parseInt(String.valueOf(m)) * ab;
                     if(temp >= 1000000){
                         temp = temp / 1000000;
-                        tongtien.setText(temp + ".000.000 ");
+                        tongtien.setText(temp + ".000.000");
                     }else if(temp >= 1000){
                         temp = temp / 1000;
-                        tongtien.setText(temp + ".000 ");
+                        tongtien.setText(temp + ".000");
                     }
                 }
                 if(rb_lon.isChecked()) {
                     temp = Integer.parseInt(String.valueOf(l)) * ab;
                     if(temp >= 1000000){
                         temp = temp / 1000000;
-                        tongtien.setText(temp + ".000.000 ");
+                        tongtien.setText(temp + ".000.000");
                     }else if(temp >= 1000){
                         temp = temp / 1000;
-                        tongtien.setText(temp + ".000 ");
+                        tongtien.setText(temp + ".000");
                     }
                 }
             }
