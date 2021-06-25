@@ -17,21 +17,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/img_Quaylai"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/ic_outline_keyboard_backspace_24" />
-
             <ImageView
                 android:id="@+id/img_DetailHinhSP"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:layout_margin="2dp"
-                android:background="@drawable/tradaodaxay" />
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,6 +42,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
                         android:layout_marginBottom="5dp"
                         android:hint="Trà đào đá xay"
                         android:textColor="@color/gray"
@@ -241,13 +233,13 @@
 
             <TextView
                 android:id="@+id/Tensp"
-                android:layout_width="150dp"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:gravity="center|left"
                 android:text="Trà đào đá xay"
                 android:textColor="@color/white"
-                android:textSize="19sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <LinearLayout

@@ -85,7 +85,7 @@
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="22dp"
-                android:text="Trở thành người tiên phong của thời đại với những ý tưởng sáng tạo đi đầu trong ngành trà và cà phê. Cùng đưa thương hiệu tỏa sáng, tạo động lực cho nhau, cùng biến ý tưởng thành hiện thực bằng tinh thần gắn kết, tương tác, biết lắng nghe và tôn trọng. Để tạo niềm vui và tình cảm cho khách hàng, mỗi chúng ta phải thường xuyên liên tục tỏa sáng. Không được để cho năng lực của bản thân bị ngủ quên, không ngừng thách thức khó khăn, phải luôn luôn tự đổi mới bản thân. Tạo ra giá trị cao bằng sự thấu hiểu, đồng cảm và những đề xuất có giá trị thật sự, thỏa mãn sự hài lòng cho khách hàng."
+                android:text="      Trở thành người tiên phong của thời đại với những ý tưởng sáng tạo đi đầu trong ngành trà và cà phê. Cùng đưa thương hiệu tỏa sáng, tạo động lực cho nhau, cùng biến ý tưởng thành hiện thực bằng tinh thần gắn kết, tương tác, biết lắng nghe và tôn trọng. Để tạo niềm vui và tình cảm cho khách hàng, mỗi chúng ta phải thường xuyên liên tục tỏa sáng. Không được để cho năng lực của bản thân bị ngủ quên, không ngừng thách thức khó khăn, phải luôn luôn tự đổi mới bản thân. Tạo ra giá trị cao bằng sự thấu hiểu, đồng cảm và những đề xuất có giá trị thật sự, thỏa mãn sự hài lòng cho khách hàng."
                 android:textColor="@color/gray"
                 android:textSize="13sp" />
 
@@ -106,8 +106,8 @@
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="22dp"
-                android:layout_marginBottom="10dp"
-                android:text="Đối với khách hàng: Cam kết cung cấp sản phẩm chất lượng và dịch vụ tốt nhất. Đối với nhân viên: Xây dựng môi trường làm việc chuyên nghiệp, năng động, sáng tạo và nhân văn, tạo điều kiện thu nhập cao và cơ hội phát triển công bằng. Đối với xã hội: Hài hòa lợi ích doanh nghiệp với lợi ích xã hội, đóng góp tích cực vào các hoạt động hướng về cộng đồng, thể hiện tinh thần trách nhiệm đối với xã hội."
+                android:layout_marginBottom="20dp"
+                android:text="      Đối với khách hàng: Cam kết cung cấp sản phẩm chất lượng và dịch vụ tốt nhất. Đối với nhân viên: Xây dựng môi trường làm việc chuyên nghiệp, năng động, sáng tạo và nhân văn, tạo điều kiện thu nhập cao và cơ hội phát triển công bằng. Đối với xã hội: Hài hòa lợi ích doanh nghiệp với lợi ích xã hội, đóng góp tích cực vào các hoạt động hướng về cộng đồng, thể hiện tinh thần trách nhiệm đối với xã hội."
                 android:textColor="@color/gray"
                 android:textSize="13sp" />
 

@@ -51,9 +51,9 @@
                 android:background="@drawable/search"
                 android:inputType="text"
                 android:queryHint="Tìm kiếm ..."
-                android:textColor="@color/black"
-                android:textColorHint="#7e7e7e"
-                android:textSize="11.7sp" />
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:textSize="9sp" />
 
         </LinearLayout>
 
