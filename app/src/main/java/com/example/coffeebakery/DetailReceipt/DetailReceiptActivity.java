@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.coffeebakery.HomeActivity;
 import com.example.coffeebakery.R;
+import com.example.coffeebakery.Receipt.ReceiptsActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import static com.example.coffeebakery.LoginActivity.gmail;
+import static com.example.coffeebakery.LoginActivity.uid;
 
 public class DetailReceiptActivity extends AppCompatActivity {
 
@@ -36,21 +38,18 @@ public class DetailReceiptActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_receipt);
         AnhXa();
         listchitiet = new ArrayList<DetailReceipt>();
-        data.child("KHACHHANG").addListenerForSingleValueEvent(new ValueEventListener() {
+        data.child("Khách hàng").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
-                    String mail = snap.child("gmail").getValue().toString();
-                    if(mail.contains(gmail)){
+                    String userid = snap.child("uid").getValue().toString();
+                    if(userid.contains(uid)){
                         String hoten = snap.child("hoten").getValue().toString();
                         String sdt = snap.child("sdt").getValue().toString();
                         String sonha = snap.child("sonha").getValue().toString();
-                        String phuong = snap.child("phuong").getValue().toString();
-                        String quan = snap.child("quan").getValue().toString();
-                        String tp = snap.child("thanhpho").getValue().toString();
                         ten_kh.setText(hoten);
                         sdt_kh.setText(sdt);
-                        diachi.setText(sonha + ", " + phuong + ", " + quan + ", " + tp);
+                        diachi.setText(sonha);
                     }
                 }
             }
@@ -71,7 +70,7 @@ public class DetailReceiptActivity extends AppCompatActivity {
         ngaydat.setText(nd);
         thanhtien.setText(tt);
 
-        data.child("GioHang").child(gmail).child(md).addListenerForSingleValueEvent(new ValueEventListener() {
+        data.child("Đơn hàng").child("Chi tiết").child(uid).child(md).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
@@ -81,7 +80,7 @@ public class DetailReceiptActivity extends AppCompatActivity {
                         String sl = snap.child("soluong").getValue().toString();
                         String ten = snap.child("ten").getValue().toString();
                         String gia = snap.child("tongtien").getValue().toString();
-                        String temp_gia = gia.substring(0,gia.length()-2);
+                        String temp_gia = gia.replace(".","");
                         tongslmon += Integer.parseInt(sl);
                         listchitiet.add(new DetailReceipt(link,sl,ten,temp_gia));
                     }
@@ -116,7 +115,7 @@ public class DetailReceiptActivity extends AppCompatActivity {
     }
 
     public void back(View view) {
-        Intent intent = new Intent(DetailReceiptActivity.this, HomeActivity.class);
+        Intent intent = new Intent(DetailReceiptActivity.this, ReceiptsActivity.class);
         startActivity(intent);
     }
 }

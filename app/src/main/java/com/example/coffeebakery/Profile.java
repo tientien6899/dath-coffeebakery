@@ -9,12 +9,13 @@ public class Profile {
     public String quan;
     public String thanhpho;
     public String gmail;
+    public String userid;
 
     public Profile() {
 
     }
 
-    public Profile(String hoten, String sdt, String sonha, String phuong, String quan, String thanhpho, String gmail) {
+    public Profile(String hoten, String sdt, String sonha, String phuong, String quan, String thanhpho, String gmail, String ud) {
         this.hoten = hoten;
         this.sdt = sdt;
         this.sonha = sonha;
@@ -22,6 +23,7 @@ public class Profile {
         this.quan = quan;
         this.thanhpho = thanhpho;
         this.gmail = gmail;
+        this.userid = ud;
     }
 
 
@@ -79,5 +81,13 @@ public class Profile {
 
     public void setGmail(String gmail) {
         this.gmail = gmail;
+    }
+
+    public String getUID() {
+        return userid;
+    }
+
+    public void setUID(String ud) {
+        this.userid = ud;
     }
 }

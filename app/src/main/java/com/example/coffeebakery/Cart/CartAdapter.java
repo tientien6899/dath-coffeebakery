@@ -52,7 +52,8 @@ public class CartAdapter extends FirebaseRecyclerAdapter<Cart, CartAdapter.Holde
                     holder.btn_cartgiamsl.setEnabled(true);
                     a--;
                     holder.txt_cartsoluong.setText(a + "");
-                    String tong = (Integer.parseInt(model.getGia()) * a) + "";
+                    String temp_gia = model.getGia().replace(".","");
+                    String tong = (Integer.parseInt(temp_gia) * a) + "";
                     Cart c = new Cart(model.getSttgiohang(),model.getGiohang(),model.getMa(),model.getTen(),model.getGia(),a+"",model.getHinhanh(), tong,model.getKichthuoc(),model.getGhichu(),model.getNguoidung());
                     ref.child("Giỏ hàng").child(uid).child("Cart"+STT).child(model.getSttgiohang()).setValue(c);
                 }
@@ -67,7 +68,8 @@ public class CartAdapter extends FirebaseRecyclerAdapter<Cart, CartAdapter.Holde
                     a++;
                     holder.btn_cartgiamsl.setEnabled(true);
                     holder.txt_cartsoluong.setText(a + "");
-                    String tong = (Integer.parseInt(model.getGia()) * a) + "";
+                    String temp_gia = model.getGia().replace(".","");
+                    String tong = (Integer.parseInt(temp_gia) * a) + "";
                     Cart c = new Cart(model.getSttgiohang(),model.getGiohang(),model.getMa(),model.getTen(),model.getGia(),a+"",model.getHinhanh(), tong,model.getKichthuoc(),model.getGhichu(),model.getNguoidung());
                     ref.child("Giỏ hàng").child(uid).child("Cart"+STT).child(model.getSttgiohang()).setValue(c);
                 }

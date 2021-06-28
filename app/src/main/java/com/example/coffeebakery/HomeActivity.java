@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.coffeebakery.Cart.CartFragment;
 import com.example.coffeebakery.Home.HomeFragment;
 import com.example.coffeebakery.Product.ProductFragment;
-import com.example.coffeebakery.Receipt.ReceiptFragment;
 import com.example.coffeebakery.Setting.SettingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;

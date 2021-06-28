@@ -122,6 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser currentUser = mAuth.getCurrentUser();
                             uid = currentUser.getUid();
+                            gmail = edtusernamedn.getText().toString();
                             Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                             startActivity(intent);

@@ -144,8 +144,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="22dp"
                     android:background="@drawable/edt_ghichu"
-                    android:inputType="number"
                     android:paddingLeft="20dp"
+                    android:paddingTop="14dp"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 

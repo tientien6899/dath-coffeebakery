@@ -81,14 +81,14 @@ public class CartFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int a = 0, b = 0;
-                String temp_gia = "";
                 for(DataSnapshot data : snapshot.getChildren()){
                     String ma = data.child("giohang").getValue().toString();
                     if(ma.contains("Cart"+STT)){
                         String sl = data.child("soluong").getValue().toString();
                         String gia = data.child("tongtien").getValue().toString();
+                        String temp_gia = gia.replace(".","");
                         a += Integer.parseInt(sl);
-                        b += Integer.parseInt(gia);
+                        b += Integer.parseInt(temp_gia);
                     }
                 }
                 tongsl.setText(a+"");
@@ -111,17 +111,17 @@ public class CartFragment extends Fragment {
                         .setNegativeButton("Xác nhận", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                mData.child("STT").addListenerForSingleValueEvent(new ValueEventListener() {
+                                mData.child("Đơn hàng").child("Thông tin").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        String string_stt = snapshot.child("stt").getValue().toString();
+                                        String string_stt = "Cart"+STT;
                                         SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss aa");
                                         Calendar calendar = Calendar.getInstance();
                                         String ngay = dateformat.format(calendar.getTime());
                                         String trangthai = "Đang xử lý";
-                                        Receipt re = new Receipt(string_stt,ngay,trangthai,tamtinh.getText().toString().trim(),gmail);
+                                        Receipt re = new Receipt(string_stt,ngay,trangthai,tamtinh.getText().toString().trim(),uid);
                                         //tạo đơn hàng
-                                        mData.child("DonHang").child(re.getMadon()).setValue(re);
+                                        mData.child("Đơn hàng").child("Thông tin").child(uid).child(re.getMadon()).setValue(re);
 
                                         //tạo giỏ hàng
                                         mData.child("Giỏ hàng").child(uid).child("Cart"+STT).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -145,12 +145,10 @@ public class CartFragment extends Fragment {
                                                     Cart c = new Cart(string_sttgiohang,string_giohang,string_ma,
                                                             string_ten,string_gia,string_soluong,string_hinhanh,
                                                             string_tongtien,string_kichthuoc,string_ghichu,string_nguoidung);
-                                                    mData.child("GioHang").child(c.getNguoidung()).child(c.getGiohang()).child(c.getSttgiohang()).setValue(c);
+
+                                                    mData.child("Đơn hàng").child("Chi tiết").child(uid).child(c.getGiohang()).child(c.getSttgiohang()).setValue(c);
                                                 }
                                             }
-                                            STT = 0;
-                                            slmon = 1;
-                                            mData.child("Giỏ hàng").child(uid).child("Cart1").removeValue();
                                         }
 
                                         @Override
@@ -158,12 +156,11 @@ public class CartFragment extends Fragment {
 
                                         }
                                         });
-
-                                        int temp = Integer.parseInt(string_stt) + 1;
-                                        mData.child("STT").child("stt").setValue(String.valueOf(temp));
+                                        mData.child("Giỏ hàng").child(uid).child("Cart"+STT).removeValue();
+                                        slmon = 1;
+                                        mData.child("Lượt Order").child("STT").setValue(STT+1);
                                         recyclerView.removeAllViews();
                                         Toast.makeText(v.getContext(), "Đã tiến hành đặt hàng!", Toast.LENGTH_SHORT).show();
-
                                     }
 
                                     @Override

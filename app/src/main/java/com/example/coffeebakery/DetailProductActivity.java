@@ -13,12 +13,16 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.coffeebakery.Cart.Cart;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import static com.example.coffeebakery.Cart.CartFragment.tongSL;
 import static com.example.coffeebakery.LoginActivity.uid;
@@ -34,7 +38,7 @@ public class DetailProductActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myData = database.getReference();
     public static int slmon = 1;
-    public static int STT = 0;
+    public static int STT = 1;
     static int temp = 0;
     String kichthuoc = "";
 
@@ -49,10 +53,10 @@ public class DetailProductActivity extends AppCompatActivity {
         txt_detailtensp.setText(intent.getStringExtra("TENSP"));
 
         int temp_giasp = Integer.parseInt(intent.getStringExtra("GIAS"));
-        if(temp_giasp >= 1000000){
+        if (temp_giasp >= 1000000) {
             temp_giasp = temp_giasp / 1000000;
             txt_detailgiasp.setText(temp_giasp + ".000.000 ");
-        } else if(temp_giasp >= 1000){
+        } else if (temp_giasp >= 1000) {
             temp_giasp = temp_giasp / 1000;
             txt_detailgiasp.setText(temp_giasp + ".000 ");
         }
@@ -64,7 +68,7 @@ public class DetailProductActivity extends AppCompatActivity {
         String masp = intent.getStringExtra("MASP");
         String danhmuc = intent.getStringExtra("DANHMUC");
 
-        if(danhmuc.contains("Thức ăn")){
+        if (danhmuc.contains("Thức ăn")) {
             rb_vua.setEnabled(false);
             rb_lon.setEnabled(false);
         }
@@ -78,21 +82,21 @@ public class DetailProductActivity extends AppCompatActivity {
         rb_nho.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     int sl = Integer.parseInt(txt_soluongsp.getText().toString().trim());
                     int temp_ssl = s * sl;
-                    if(temp_ssl >= 1000000){
+                    if (temp_ssl >= 1000000) {
                         temp_ssl = temp_ssl / 1000000;
                         tongtien.setText(temp_ssl + ".000.000");
-                    } else if(temp_ssl >= 1000){
+                    } else if (temp_ssl >= 1000) {
                         temp_ssl = temp_ssl / 1000;
                         tongtien.setText(temp_ssl + ".000");
                     }
                     int temp_s = s;
-                    if(temp_s >= 1000000){
+                    if (temp_s >= 1000000) {
                         temp_s = temp_s / 1000000;
                         txt_detailgiasp.setText(temp_s + ".000.000");
-                    } else if(temp_s >= 1000){
+                    } else if (temp_s >= 1000) {
                         temp_s = temp_s / 1000;
                         txt_detailgiasp.setText(temp_s + ".000");
                     }
@@ -104,21 +108,21 @@ public class DetailProductActivity extends AppCompatActivity {
         rb_vua.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     int sl = Integer.parseInt(txt_soluongsp.getText().toString().trim());
                     int temp_msl = m * sl;
-                    if(temp_msl >= 1000000){
+                    if (temp_msl >= 1000000) {
                         temp_msl = temp_msl / 1000000;
                         tongtien.setText(temp_msl + ".000.000");
-                    } else if(temp_msl >= 1000){
+                    } else if (temp_msl >= 1000) {
                         temp_msl = temp_msl / 1000;
                         tongtien.setText(temp_msl + ".000");
                     }
                     int temp_m = m;
-                    if(temp_m >= 1000000){
+                    if (temp_m >= 1000000) {
                         temp_m = temp_m / 1000000;
                         txt_detailgiasp.setText(temp_m + ".000.000");
-                    } else if(temp_m >= 1000){
+                    } else if (temp_m >= 1000) {
                         temp_m = temp_m / 1000;
                         txt_detailgiasp.setText(temp_m + ".000");
                     }
@@ -130,23 +134,23 @@ public class DetailProductActivity extends AppCompatActivity {
         rb_lon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     int sl = Integer.parseInt(txt_soluongsp.getText().toString().trim());
                     tongtien.setText(String.valueOf(l * sl));
                     txt_detailgiasp.setText(l + "");
                     int temp_lsl = l * sl;
-                    if(temp_lsl >= 1000000){
+                    if (temp_lsl >= 1000000) {
                         temp_lsl = temp_lsl / 1000000;
                         tongtien.setText(temp_lsl + ".000.000");
-                    } else if(temp_lsl >= 1000){
+                    } else if (temp_lsl >= 1000) {
                         temp_lsl = temp_lsl / 1000;
                         tongtien.setText(temp_lsl + ".000");
                     }
                     int temp_l = l;
-                    if(temp_l >= 1000000){
+                    if (temp_l >= 1000000) {
                         temp_l = temp_l / 1000000;
                         txt_detailgiasp.setText(temp_l + ".000.000");
-                    } else if(temp_l >= 1000){
+                    } else if (temp_l >= 1000) {
                         temp_l = temp_l / 1000;
                         txt_detailgiasp.setText(temp_l + ".000");
                     }
@@ -156,7 +160,7 @@ public class DetailProductActivity extends AppCompatActivity {
         });
         final int[] sluong = {Integer.parseInt(txt_soluongsp.getText().toString())};
 
-         //Nút giảm số lượng
+        //Nút giảm số lượng
         btn_giam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,7 +178,7 @@ public class DetailProductActivity extends AppCompatActivity {
         btn_tang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(sluong[0] > 0){
+                if (sluong[0] > 0) {
                     btn_giam.setVisibility(View.VISIBLE);
                 }
                 sluong[0] += 1;
@@ -192,34 +196,33 @@ public class DetailProductActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence cs, int start, int before, int count) {
                 int ab = Integer.parseInt(String.valueOf(cs));
-                if(rb_nho.isChecked())
-                {
+                if (rb_nho.isChecked()) {
                     temp = Integer.parseInt(String.valueOf(s)) * ab;
-                    if(temp >= 1000000){
+                    if (temp >= 1000000) {
                         temp = temp / 1000000;
                         tongtien.setText(temp + ".000.000");
-                    }else if(temp >= 1000){
+                    } else if (temp >= 1000) {
                         temp = temp / 1000;
                         tongtien.setText(temp + ".000");
                     }
                 }
 
-                if(rb_vua.isChecked()){
+                if (rb_vua.isChecked()) {
                     temp = Integer.parseInt(String.valueOf(m)) * ab;
-                    if(temp >= 1000000){
+                    if (temp >= 1000000) {
                         temp = temp / 1000000;
                         tongtien.setText(temp + ".000.000");
-                    }else if(temp >= 1000){
+                    } else if (temp >= 1000) {
                         temp = temp / 1000;
                         tongtien.setText(temp + ".000");
                     }
                 }
-                if(rb_lon.isChecked()) {
+                if (rb_lon.isChecked()) {
                     temp = Integer.parseInt(String.valueOf(l)) * ab;
-                    if(temp >= 1000000){
+                    if (temp >= 1000000) {
                         temp = temp / 1000000;
                         tongtien.setText(temp + ".000.000");
-                    }else if(temp >= 1000){
+                    } else if (temp >= 1000) {
                         temp = temp / 1000;
                         tongtien.setText(temp + ".000");
                     }
@@ -236,8 +239,19 @@ public class DetailProductActivity extends AppCompatActivity {
         btn_datmon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                STT = 1;
-                if(kichthuoc == ""){
+                myData.child("Lượt Order").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int stt = Integer.parseInt(snapshot.child("STT").getValue().toString());
+                        STT = stt;
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                if (kichthuoc == "") {
                     kichthuoc = "Nhỏ (S)";
                 }
                 Cart cart = new Cart(String.valueOf(slmon),
@@ -251,14 +265,12 @@ public class DetailProductActivity extends AppCompatActivity {
                         kichthuoc,
                         edt_ghichu.getText().toString().trim(),
                         uid);
-                    myData.child("Giỏ hàng").child(uid).child("Cart" + STT).child(cart.getSttgiohang()).setValue(cart);
-                    tongSL += Integer.parseInt(cart.getSoluong());
-                    slmon++;
-                    Toast.makeText(DetailProductActivity.this, "Thêm sản phẩm vào giỏ hàng thành công !", Toast.LENGTH_SHORT).show();
-                }
-
+                myData.child("Giỏ hàng").child(uid).child("Cart" + STT).child(cart.getSttgiohang()).setValue(cart);
+                tongSL += Integer.parseInt(cart.getSoluong());
+                slmon++;
+                Toast.makeText(DetailProductActivity.this, "Thêm sản phẩm vào giỏ hàng thành công !", Toast.LENGTH_SHORT).show();
+            }
         });
-
     }
 
     private void AnhXa() {

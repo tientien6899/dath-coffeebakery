@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,15 +17,12 @@ import android.widget.Toast;
 
 import com.example.coffeebakery.CSKHActivity;
 import com.example.coffeebakery.LoginActivity;
-import com.example.coffeebakery.Profile;
 import com.example.coffeebakery.ProfileActivity;
 import com.example.coffeebakery.R;
-import com.example.coffeebakery.Receipt.ReceiptFragment;
+
+import com.example.coffeebakery.Receipt.ReceiptsActivity;
+import com.example.coffeebakery.Setting.ListAddress.ListAddressActivity;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.ArrayList;
-
-import static com.example.coffeebakery.LoginActivity.gmail;
 
 public class SettingFragment extends Fragment {
 
@@ -66,9 +61,19 @@ public class SettingFragment extends Fragment {
         donhangcuatoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Context context = v.getContext();
-//                Intent intent = new Intent(context, ReceiptFragment.class);
-//                context.startActivity(intent);
+                Context context = v.getContext();
+                Intent intent = new Intent(context, ReceiptsActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+        sodiachi = v.findViewById(R.id.Setting_Sodiachi);
+        sodiachi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = v.getContext();
+                Intent intent = new Intent(context, ListAddressActivity.class);
+                context.startActivity(intent);
             }
         });
 
@@ -121,5 +126,4 @@ public class SettingFragment extends Fragment {
 
         return v;
     }
-
 }

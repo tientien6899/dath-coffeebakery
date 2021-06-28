@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CSKHActivity"></activity>
+        <activity android:name=".Setting.ListAddress.AddAddressActivity"></activity>
+        <activity android:name=".Setting.ListAddress.ListAddressActivity" />
+        <activity android:name=".Receipt.ReceiptsActivity" />
+        <activity android:name=".CSKHActivity" />
         <activity android:name=".DevelopingActivity" />
         <activity android:name=".Setting.AboutUsActivity" />
         <activity android:name=".Setting.DoiMatKhauActivity" />
