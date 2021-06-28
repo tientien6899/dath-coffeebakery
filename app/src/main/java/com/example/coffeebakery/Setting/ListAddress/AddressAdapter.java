@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.coffeebakery.DetailReceipt.DetailReceiptActivity;
 import com.example.coffeebakery.R;
 import com.example.coffeebakery.Receipt.ReceiptAdapter;
 import com.example.coffeebakery.Receipt.ReceiptsActivity;
@@ -42,36 +43,21 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.Holder>{
 
     @Override
     public void onBindViewHolder(@NonNull AddressAdapter.Holder holder, int position) {
-        myData.child("Sổ địa chỉ").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    for(DataSnapshot data : snapshot.getChildren()){
-                        String userid = data.child("uid").getValue().toString();
-                        if(userid.contains(uid)){
-                            holder.hoten.setText(data.child("hoten").getValue().toString());
-                            holder.sdt.setText(data.child("sdt").getValue().toString());
-                            holder.sonha.setText(data.child("sonha").getValue().toString());
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        Address ad = (Address) mAddress.get(position);
+        holder.hoten.setText(ad.getHoten());
+        holder.sonha.setText(ad.getSonha());
+        holder.sdt.setText(ad.getSdt());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Context context = view.getContext();
                 holder.macdinh.setText("Mặc định");
-                Intent intent = new Intent(view.getContext(), ReceiptsActivity.class);
+                Intent intent = new Intent(context, DetailReceiptActivity.class);
                 intent.putExtra("HOTEN",holder.hoten.getText());
                 intent.putExtra("SDT",holder.sdt.getText());
                 intent.putExtra("SONHA",holder.sonha.getText());
-                mContext.startActivity(intent);
+                context.startActivity(intent);
             }
         });
     }

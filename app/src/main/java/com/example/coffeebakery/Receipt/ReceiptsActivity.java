@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.coffeebakery.R;
 import com.example.coffeebakery.Setting.ListAddress.AddAddressActivity;
@@ -28,7 +29,7 @@ public class ReceiptsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ReceiptAdapter adapter;
     ArrayList<Receipt> listReceipt;
-    LinearLayout addlist;
+    TextView addlist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,14 +64,13 @@ public class ReceiptsActivity extends AppCompatActivity {
             }
         });
 
-        addlist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ReceiptsActivity.this, AddAddressActivity.class);
-                startActivity(intent);
-
-            }
-        });
+//        addlist.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(ReceiptsActivity.this, AddAddressActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private void AnhXa() {

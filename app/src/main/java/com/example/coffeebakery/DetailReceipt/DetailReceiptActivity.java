@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.coffeebakery.HomeActivity;
 import com.example.coffeebakery.R;
 import com.example.coffeebakery.Receipt.ReceiptsActivity;
+import com.example.coffeebakery.Setting.ListAddress.ListAddressActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -65,7 +66,6 @@ public class DetailReceiptActivity extends AppCompatActivity {
         String nd = intent.getStringExtra("NGAYDAT");
         String tt = intent.getStringExtra("TONGTIEN");
         String mgh = intent.getStringExtra("MAGIOHANG");
-
         madon.setText(md);
         ngaydat.setText(nd);
         thanhtien.setText(tt);

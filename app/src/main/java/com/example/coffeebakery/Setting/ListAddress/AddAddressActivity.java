@@ -39,7 +39,7 @@ public class AddAddressActivity extends AppCompatActivity {
                         String temp_sonha = sonha.getText().toString();
                         Address ad = new Address(uid,temp_hoten,temp_sdt,temp_sonha);
 
-                        mData.child("Sổ địa chỉ").child(uid).setValue(ad);
+                        mData.child("Sổ địa chỉ").child(uid).child(temp_hoten).setValue(ad);
                         Intent intent = new Intent(AddAddressActivity.this, ListAddressActivity.class);
                         Toast.makeText(AddAddressActivity.this, "Thêm mới sổ địa chỉ thành công!", Toast.LENGTH_SHORT).show();
                         startActivity(intent);

@@ -64,7 +64,7 @@ public class ProfileActivity extends AppCompatActivity {
                 p.userid = uid;
 
                 mData.child("Khách hàng").child(uid).setValue(p);
-                mData.child("Sổ địa chỉ").child(uid).setValue(p);
+                mData.child("Sổ địa chỉ").child(uid).child(p.hoten).setValue(p);
                 Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
                 Toast.makeText(ProfileActivity.this, "Cập nhật thông tin tài khoản thành công!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);

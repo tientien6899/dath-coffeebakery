@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.coffeebakery.R;
 import com.example.coffeebakery.Receipt.Receipt;
@@ -28,7 +30,7 @@ public class ListAddressActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     AddressAdapter adapter;
     ArrayList<Address> listAddress;
-    LinearLayout addAddress;
+    TextView addAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +39,16 @@ public class ListAddressActivity extends AppCompatActivity {
         Context context = this.getApplicationContext();
         AnhXa();
         listAddress = new ArrayList<Address>();
-        mData.child("Sổ địa chỉ").addListenerForSingleValueEvent(new ValueEventListener() {
+        mData.child("Sổ địa chỉ").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot data : snapshot.getChildren()){
-                    String temp_nguoidung = data.child("uid").getValue().toString();
-                    if(temp_nguoidung.contains(uid)){
+
+                    String temp_uid = data.child("uid").getValue().toString();
+                    if(temp_uid.contains(uid)){
                         String temp_hoten = data.child("hoten").getValue().toString();
                         String temp_sdt = data.child("sdt").getValue().toString();
                         String temp_sonha = data.child("sonha").getValue().toString();
-
                         listAddress.add(new Address(uid,temp_hoten,temp_sdt,temp_sonha));
                     }
                 }
