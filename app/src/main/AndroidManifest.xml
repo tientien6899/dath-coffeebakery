@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Setting.ListAddress.AddAddressActivity"></activity>
+        <activity android:name=".Cart.OrderActivity"></activity>
+        <activity android:name=".Setting.ListAddress.AddAddressActivity" />
         <activity android:name=".Setting.ListAddress.ListAddressActivity" />
         <activity android:name=".Receipt.ReceiptsActivity" />
         <activity android:name=".CSKHActivity" />

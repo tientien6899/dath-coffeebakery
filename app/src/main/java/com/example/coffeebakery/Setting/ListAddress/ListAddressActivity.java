@@ -43,7 +43,6 @@ public class ListAddressActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot data : snapshot.getChildren()){
-
                     String temp_uid = data.child("uid").getValue().toString();
                     if(temp_uid.contains(uid)){
                         String temp_hoten = data.child("hoten").getValue().toString();

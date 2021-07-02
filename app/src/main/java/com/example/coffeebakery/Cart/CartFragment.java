@@ -2,6 +2,7 @@ package com.example.coffeebakery.Cart;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.ConcurrentModificationException;
 
 import static com.example.coffeebakery.DetailProductActivity.STT;
 import static com.example.coffeebakery.DetailProductActivity.slmon;
@@ -104,82 +106,89 @@ public class CartFragment extends Fragment {
         btn_datmon = (Button) v.findViewById(R.id.btn_THDH);
         btn_datmon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                builder.setMessage("Tiến hành đặt các món đã chọn!")
-                        .setCancelable(true)
-                        .setNegativeButton("Xác nhận", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                mData.child("Đơn hàng").child("Thông tin").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        String string_stt = "Cart"+STT;
-                                        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss aa");
-                                        Calendar calendar = Calendar.getInstance();
-                                        String ngay = dateformat.format(calendar.getTime());
-                                        String trangthai = "Đang xử lý";
-                                        Receipt re = new Receipt(string_stt,ngay,trangthai,tamtinh.getText().toString().trim(),uid);
-                                        //tạo đơn hàng
-                                        mData.child("Đơn hàng").child("Thông tin").child(uid).child(re.getMadon()).setValue(re);
-
-                                        //tạo giỏ hàng
-                                        mData.child("Giỏ hàng").child(uid).child("Cart"+STT).addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            for(DataSnapshot data : snapshot.getChildren()){
-                                                String gh = data.child("giohang").getValue().toString();
-                                                if(gh.contains("Cart"+STT)){
-                                                    String string_ghichu = data.child("ghichu").getValue().toString();
-                                                    String string_gia = data.child("gia").getValue().toString();
-                                                    String string_giohang = string_stt + "";
-                                                    String string_hinhanh = data.child("hinhanh").getValue().toString();
-                                                    String string_kichthuoc = data.child("kichthuoc").getValue().toString();
-                                                    String string_ma = data.child("ma").getValue().toString();
-                                                    String string_nguoidung = data.child("nguoidung").getValue().toString();
-                                                    String string_soluong = data.child("soluong").getValue().toString();
-                                                    String string_sttgiohang = data.child("sttgiohang").getValue().toString();
-                                                    String string_ten = data.child("ten").getValue().toString();
-                                                    String string_tongtien = data.child("tongtien").getValue().toString();
-
-                                                    Cart c = new Cart(string_sttgiohang,string_giohang,string_ma,
-                                                            string_ten,string_gia,string_soluong,string_hinhanh,
-                                                            string_tongtien,string_kichthuoc,string_ghichu,string_nguoidung);
-
-                                                    mData.child("Đơn hàng").child("Chi tiết").child(uid).child(c.getGiohang()).child(c.getSttgiohang()).setValue(c);
-                                                }
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                        }
-                                        });
-                                        mData.child("Giỏ hàng").child(uid).child("Cart"+STT).removeValue();
-                                        slmon = 1;
-                                        mData.child("Lượt Order").child("STT").setValue(STT+1);
-                                        recyclerView.removeAllViews();
-                                        Toast.makeText(v.getContext(), "Đã tiến hành đặt hàng!", Toast.LENGTH_SHORT).show();
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-                                });
-
-                            }
-                        })
-                        .setPositiveButton("Quay lại", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        });
-                builder.show();
+            public void onClick(View view) {
+                Intent intent = new Intent(v.getContext(),OrderActivity.class);
+                v.getContext().startActivity(intent);
             }
         });
+//        btn_datmon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+//                builder.setMessage("Tiến hành đặt các món đã chọn!")
+//                        .setCancelable(true)
+//                        .setNegativeButton("Xác nhận", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                mData.child("Đơn hàng").child("Thông tin").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+//                                    @Override
+//                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                        String string_stt = "Cart"+STT;
+//                                        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss aa");
+//                                        Calendar calendar = Calendar.getInstance();
+//                                        String ngay = dateformat.format(calendar.getTime());
+//                                        String trangthai = "Đang xử lý";
+//                                        Receipt re = new Receipt(string_stt,ngay,trangthai,tamtinh.getText().toString().trim(),uid);
+//                                        //tạo đơn hàng
+//                                        mData.child("Đơn hàng").child("Thông tin").child(uid).child(re.getMadon()).setValue(re);
+//
+//                                        //tạo giỏ hàng
+//                                        mData.child("Giỏ hàng").child(uid).child("Cart"+STT).addListenerForSingleValueEvent(new ValueEventListener() {
+//                                        @Override
+//                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                            for(DataSnapshot data : snapshot.getChildren()){
+//                                                String gh = data.child("giohang").getValue().toString();
+//                                                if(gh.contains("Cart"+STT)){
+//                                                    String string_ghichu = data.child("ghichu").getValue().toString();
+//                                                    String string_gia = data.child("gia").getValue().toString();
+//                                                    String string_giohang = string_stt + "";
+//                                                    String string_hinhanh = data.child("hinhanh").getValue().toString();
+//                                                    String string_kichthuoc = data.child("kichthuoc").getValue().toString();
+//                                                    String string_ma = data.child("ma").getValue().toString();
+//                                                    String string_nguoidung = data.child("nguoidung").getValue().toString();
+//                                                    String string_soluong = data.child("soluong").getValue().toString();
+//                                                    String string_sttgiohang = data.child("sttgiohang").getValue().toString();
+//                                                    String string_ten = data.child("ten").getValue().toString();
+//                                                    String string_tongtien = data.child("tongtien").getValue().toString();
+//
+//                                                    Cart c = new Cart(string_sttgiohang,string_giohang,string_ma,
+//                                                            string_ten,string_gia,string_soluong,string_hinhanh,
+//                                                            string_tongtien,string_kichthuoc,string_ghichu,string_nguoidung);
+//
+//                                                    mData.child("Đơn hàng").child("Chi tiết").child(uid).child(c.getGiohang()).child(c.getSttgiohang()).setValue(c);
+//                                                }
+//                                            }
+//                                        }
+//
+//                                        @Override
+//                                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                                        }
+//                                        });
+//                                        mData.child("Giỏ hàng").child(uid).child("Cart"+STT).removeValue();
+//                                        slmon = 1;
+//                                        mData.child("Lượt Order").child("STT").setValue(STT+1);
+//                                        recyclerView.removeAllViews();
+//                                        Toast.makeText(v.getContext(), "Đã tiến hành đặt hàng!", Toast.LENGTH_SHORT).show();
+//                                    }
+//
+//                                    @Override
+//                                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                                    }
+//                                });
+//
+//                            }
+//                        })
+//                        .setPositiveButton("Quay lại", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//
+//                            }
+//                        });
+//                builder.show();
+//            }
+//        });
         return v;
     }
 

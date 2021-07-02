@@ -2,6 +2,7 @@ package com.example.coffeebakery.Setting.ListAddress;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.coffeebakery.Cart.OrderActivity;
 import com.example.coffeebakery.DetailReceipt.DetailReceiptActivity;
 import com.example.coffeebakery.R;
 import com.example.coffeebakery.Receipt.ReceiptAdapter;
@@ -53,10 +55,12 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.Holder>{
             public void onClick(View view) {
                 Context context = view.getContext();
                 holder.macdinh.setText("Mặc định");
-                Intent intent = new Intent(context, DetailReceiptActivity.class);
-                intent.putExtra("HOTEN",holder.hoten.getText());
-                intent.putExtra("SDT",holder.sdt.getText());
-                intent.putExtra("SONHA",holder.sonha.getText());
+                Intent intent = new Intent(context, OrderActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("HOTEN",holder.hoten.getText().toString());
+                bundle.putString("SDT",holder.sdt.getText().toString());
+                bundle.putString("SONHA",holder.sonha.getText().toString());
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
