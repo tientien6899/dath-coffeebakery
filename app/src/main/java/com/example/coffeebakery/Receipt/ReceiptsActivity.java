@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -29,7 +30,7 @@ public class ReceiptsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ReceiptAdapter adapter;
     ArrayList<Receipt> listReceipt;
-    TextView addlist;
+    Button addlist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +76,6 @@ public class ReceiptsActivity extends AppCompatActivity {
 
     private void AnhXa() {
         recyclerView = findViewById(R.id.rcv_dsdonhang);
-        addlist = findViewById(R.id.txt_addaddress);
+        addlist = findViewById(R.id.btn_addaddress);
     }
 }

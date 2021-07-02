@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +21,7 @@ import static com.example.coffeebakery.LoginActivity.uid;
 public class AddAddressActivity extends AppCompatActivity {
 
     EditText hoten, sdt, sonha;
-    TextView luu;
+    Button luu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
