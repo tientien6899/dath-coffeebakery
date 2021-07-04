@@ -76,7 +76,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.Holder>{
         public Holder(@NonNull  View itemView) {
             super(itemView);
             hoten = itemView.findViewById(R.id.txt_hoten);
-            macdinh = itemView.findViewById(R.id.txt_macdinh);
+            macdinh = itemView.findViewById(R.id.txt_xoadiachi);
             sdt = itemView.findViewById(R.id.txt_sdt);
             sonha = itemView.findViewById(R.id.txt_sonha);
         }

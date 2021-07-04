@@ -38,13 +38,28 @@ public class DetailReceiptActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_receipt);
         AnhXa();
+
+        Intent intent = getIntent();
+        String md = intent.getStringExtra("MADON");
+        String nd = intent.getStringExtra("NGAYDAT");
+        String tt = intent.getStringExtra("TONGTIEN");
+        String mgh = intent.getStringExtra("MAGIOHANG");
+        String pgh = intent.getStringExtra("SHIP");
+        String temp_tamtinh = intent.getStringExtra("TAMTINH");
+        madon.setText(md);
+        ngaydat.setText(nd);
+        thanhtien.setText(tt);
+        phigh.setText(pgh);
+        thanhtien.setText(temp_tamtinh);
+
         listchitiet = new ArrayList<DetailReceipt>();
-        data.child("Khách hàng").addListenerForSingleValueEvent(new ValueEventListener() {
+        data.child("Đơn hàng").child("Thông tin").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
-                    String userid = snap.child("uid").getValue().toString();
-                    if(userid.contains(uid)){
+                    String userid = snap.child("nguoidung").getValue().toString();
+                    String tep_md = snap.child("madon").getValue().toString();
+                    if(userid.contains(uid) && tep_md.contains(md)){
                         String hoten = snap.child("hoten").getValue().toString();
                         String sdt = snap.child("sdt").getValue().toString();
                         String sonha = snap.child("sonha").getValue().toString();
@@ -60,15 +75,6 @@ public class DetailReceiptActivity extends AppCompatActivity {
 
             }
         });
-
-        Intent intent = getIntent();
-        String md = intent.getStringExtra("MADON");
-        String nd = intent.getStringExtra("NGAYDAT");
-        String tt = intent.getStringExtra("TONGTIEN");
-        String mgh = intent.getStringExtra("MAGIOHANG");
-        madon.setText(md);
-        ngaydat.setText(nd);
-        thanhtien.setText(tt);
 
         data.child("Đơn hàng").child("Chi tiết").child(uid).child(md).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -98,7 +104,7 @@ public class DetailReceiptActivity extends AppCompatActivity {
             }
         });
 
-        tongcong.setText(String.valueOf(Integer.parseInt(thanhtien.getText().toString()) + Integer.parseInt(phigh.getText().toString())));
+        tongcong.setText(tt);
     }
 
     private void AnhXa() {
@@ -107,11 +113,11 @@ public class DetailReceiptActivity extends AppCompatActivity {
         diachi = (TextView) findViewById(R.id.txt_Diachigiaohang);
         madon = (TextView) findViewById(R.id.txt_Madonhang);
         ngaydat = (TextView) findViewById(R.id.txt_Thoigiandathang);
-        thanhtien = (TextView) findViewById(R.id.txt_Thanhtien);
+        thanhtien = (TextView) findViewById(R.id.txt_chitiettamtinh);
         recyclerView = (RecyclerView) findViewById(R.id.rcv_Chitietdonhang);
         tongmon = (TextView) findViewById(R.id.txt_Soluongmon);
         tongcong = (TextView) findViewById(R.id.txt_Tongcong);
-        phigh = (TextView) findViewById(R.id.txt_Phigiaohang);
+        phigh = (TextView) findViewById(R.id.txt_chitietphigiaohang);
     }
 
     public void back(View view) {

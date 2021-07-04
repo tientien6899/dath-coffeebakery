@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.nio.file.LinkPermission;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +60,6 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.Holder>{
         myData.child("Đơn hàng").child("Chi tiết").child(uid).child(md).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String stt = "";
                 for(DataSnapshot data : snapshot.getChildren()){
                     String gh = data.child("giohang").getValue().toString();
                     if(gh.contains(md)){
@@ -70,7 +70,6 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.Holder>{
                             Glide.with(holder.hinhanh.getContext()).load(data.child("hinhanh").getValue().toString()).into(holder.hinhanh);
                         }
                     }
-                    stt = data.child("sttgiohang").getValue().toString();
                 }
                 holder.xemthem.setText("Xem thêm");
             }
@@ -103,6 +102,11 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.Holder>{
                 intent.putExtra("MAGIOHANG",re.getMadon());
                 intent.putExtra("TONGTIEN",re.getTongtien());
                 intent.putExtra("NGAYDAT",re.getNgaydat());
+                intent.putExtra("HOTEN",re.getHoten());
+                intent.putExtra("SDT",re.getSdt());
+                intent.putExtra("SONHA",re.getSonha());
+                intent.putExtra("SHIP",re.getShip());
+                intent.putExtra("TAMTINH",re.getTamtinh());
                 context.startActivity(intent);
             }
         });

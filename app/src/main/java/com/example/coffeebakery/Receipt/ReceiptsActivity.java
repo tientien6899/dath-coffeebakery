@@ -48,8 +48,15 @@ public class ReceiptsActivity extends AppCompatActivity {
                         String temp_ngaydat = data.child("ngaydat").getValue().toString();
                         String temp_tongtien = data.child("tongtien").getValue().toString();
                         String temp_trangthai = data.child("trangthai").getValue().toString();
+                        String temp_hoten = data.child("hoten").getValue().toString();
+                        String temp_sdt = data.child("sdt").getValue().toString();
+                        String temp_sonha = data.child("sonha").getValue().toString();
+                        String temp_ship = data.child("ship").getValue().toString();
+                        String temp_tamtinh = data.child("tamtinh").getValue().toString();
 
-                        listReceipt.add(new Receipt(temp_madon,temp_ngaydat,temp_trangthai,temp_tongtien,temp_nguoidung));
+                        listReceipt.add(new Receipt(temp_madon,temp_ngaydat,temp_trangthai,
+                                                    temp_tongtien,temp_nguoidung,temp_hoten,
+                                                    temp_sdt,temp_sonha,temp_ship,temp_tamtinh));
                     }
                 }
                 adapter = new ReceiptAdapter(listReceipt,context);

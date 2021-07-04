@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.coffeebakery.CSKHActivity;
@@ -23,12 +25,19 @@ import com.example.coffeebakery.R;
 import com.example.coffeebakery.Receipt.ReceiptsActivity;
 import com.example.coffeebakery.Setting.ListAddress.ListAddressActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import static com.example.coffeebakery.HomeActivity.mData;
+import static com.example.coffeebakery.LoginActivity.uid;
 
 public class SettingFragment extends Fragment {
 
     LinearLayout thongtintaikhoan, doimatkhau, sodiachi, thongtinthanhtoan, donhangcuatoi, danhsachyeuthich, vechungtoi, lienhecskh, chinhsachdieukhoan;
     Button dangxuat;
     FirebaseAuth mAuth;
+    TextView hotenuser, mail;
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -36,6 +45,24 @@ public class SettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_setting, container, false);
+
+        hotenuser = v.findViewById(R.id.txt_Hoten);
+        mail = v.findViewById(R.id.txt_email);
+
+        mData.child("Khách hàng").child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    hotenuser.setText(snapshot.child("hoten").getValue().toString());
+                    mail.setText(snapshot.child("gmail").getValue().toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         thongtintaikhoan = v.findViewById(R.id.Setting_Thongtintk);
         thongtintaikhoan.setOnClickListener(new View.OnClickListener() {

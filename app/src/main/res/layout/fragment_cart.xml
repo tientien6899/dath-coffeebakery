@@ -131,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center|left"
-                    android:text="đ"
+                    android:text=" đ"
                     android:textColor="@color/yellow"
                     android:textSize="22dp"
                     android:textStyle="bold" />
