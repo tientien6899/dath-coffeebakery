@@ -20,7 +20,7 @@
             android:hint="Nguyễn Thị Cẩm Tiên"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/gray"
             android:gravity="center|left"/>
 
         <TextView
@@ -40,7 +40,7 @@
         android:layout_height="match_parent"
         android:hint="0838532354"
         android:textSize="13sp"
-        android:textColor="@color/black"
+        android:textColor="@color/gray"
         android:gravity="center|left"/>
 
     <TextView
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:hint="67/25 Bờ Bao Tân Thắng, p. Sơn Kỳ, q. Tân Phú, TPHCM"
         android:textSize="13sp"
-        android:textColor="@color/black"
+        android:textColor="@color/gray"
         android:gravity="center|left"/>
 
 </LinearLayout>

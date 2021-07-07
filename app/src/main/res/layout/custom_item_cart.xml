@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center|left"
                 android:hint="Trà xanh đá xay"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
@@ -140,5 +140,5 @@
         android:layout_width="match_parent"
         android:layout_height="0.7dp"
         android:layout_marginTop="10dp"
-        android:background="@color/green" />
+        android:background="@color/whitegray" />
 </LinearLayout>

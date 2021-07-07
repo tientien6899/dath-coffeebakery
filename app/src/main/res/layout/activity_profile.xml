@@ -54,8 +54,8 @@
                     android:id="@+id/img_Avatar"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginTop="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/ic_outline_image_24" />
 
                 <TextView
@@ -74,11 +74,11 @@
                     android:layout_marginLeft="22dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="22dp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
                     android:background="@drawable/edt_ghichu"
                     android:hint="Nhập họ tên"
                     android:inputType="text"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
