@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -54,7 +55,6 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.Holder>{
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
-                holder.macdinh.setText("Mặc định");
                 Intent intent = new Intent(context, OrderActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("HOTEN",holder.hoten.getText().toString());
@@ -62,6 +62,30 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.Holder>{
                 bundle.putString("SONHA",holder.sonha.getText().toString());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
+            }
+        });
+
+        holder.xoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myData.child("Sổ địa chỉ").child(uid).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            for (DataSnapshot data : snapshot.getChildren()){
+                                String temp_hoten = data.child("hoten").getValue().toString();
+                                if(temp_hoten.contains(ad.getHoten())){
+                                    myData.child("Sổ địa chỉ").child(uid).child(temp_hoten).removeValue();
+                                }
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
     }
@@ -72,11 +96,12 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.Holder>{
     }
 
     public class Holder extends RecyclerView.ViewHolder {
-        TextView hoten, macdinh, sdt, sonha;
+        TextView hoten, sdt, sonha;
+        ImageView xoa;
         public Holder(@NonNull  View itemView) {
             super(itemView);
             hoten = itemView.findViewById(R.id.txt_hoten);
-            macdinh = itemView.findViewById(R.id.txt_xoadiachi);
+            xoa = itemView.findViewById(R.id.txt_xoadiachi);
             sdt = itemView.findViewById(R.id.txt_sdt);
             sonha = itemView.findViewById(R.id.txt_sonha);
         }

@@ -43,6 +43,7 @@ public class ListAddressActivity extends AppCompatActivity {
         mData.child("Sổ địa chỉ").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listAddress.clear();
                 for(DataSnapshot data : snapshot.getChildren()){
                     String temp_uid = data.child("uid").getValue().toString();
                     if(temp_uid.contains(uid)){
