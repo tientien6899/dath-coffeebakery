@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import static com.example.coffeebakery.DetailProductActivity.STT;
-import static com.example.coffeebakery.LoginActivity.uid;
+import static com.example.coffeebakery.SplashActivity.uid;
 
 
 public class CartAdapter extends FirebaseRecyclerAdapter<Cart, CartAdapter.Holder> {

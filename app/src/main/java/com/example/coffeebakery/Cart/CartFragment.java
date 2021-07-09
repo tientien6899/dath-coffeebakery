@@ -24,16 +24,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.ConcurrentModificationException;
-
 import static com.example.coffeebakery.DetailProductActivity.STT;
-import static com.example.coffeebakery.DetailProductActivity.slmon;
-import static com.example.coffeebakery.LoginActivity.gmail;
 import static com.example.coffeebakery.HomeActivity.mData;
-import static com.example.coffeebakery.LoginActivity.uid;
+import static com.example.coffeebakery.SplashActivity.uid;
 
 public class CartFragment extends Fragment {
     private DatabaseReference myData;

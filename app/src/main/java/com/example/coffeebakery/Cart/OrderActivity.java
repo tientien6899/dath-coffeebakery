@@ -37,7 +37,7 @@ import static com.example.coffeebakery.Cart.CartFragment.tamtinhdonhang;
 import static com.example.coffeebakery.DetailProductActivity.STT;
 import static com.example.coffeebakery.DetailProductActivity.slmon;
 import static com.example.coffeebakery.HomeActivity.mData;
-import static com.example.coffeebakery.LoginActivity.uid;
+import static com.example.coffeebakery.SplashActivity.uid;
 
 public class OrderActivity extends AppCompatActivity {
     RecyclerView donhang;
@@ -227,6 +227,24 @@ public class OrderActivity extends AppCompatActivity {
                                                 Cart c = new Cart(string_sttgiohang,string_giohang,string_ma,
                                                         string_ten,string_gia,string_soluong,string_hinhanh,
                                                         string_tongtien,string_kichthuoc,string_ghichu,string_nguoidung);
+
+                                                mData.child("Sản Phẩm").addValueEventListener(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                        for (DataSnapshot snap : snapshot.getChildren()){
+                                                            Product pro = snap.getValue(Product.class);
+                                                            if(pro.getMasp().contains(string_ma)){
+                                                                pro.setLuotMua(Integer.parseInt(string_soluong));
+                                                                mData.child("Sản Phẩm").child(pro.getMasp()).setValue(pro);
+                                                            }
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                                    }
+                                                });
 
                                                 mData.child("Đơn hàng").child("Chi tiết").child(uid).child(c.getGiohang()).child(c.getSttgiohang()).setValue(c);
                                             }

@@ -9,22 +9,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
-import com.example.coffeebakery.HomeActivity;
 import com.example.coffeebakery.R;
 import com.example.coffeebakery.Receipt.ReceiptsActivity;
-import com.example.coffeebakery.Setting.ListAddress.ListAddressActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
-
-import static com.example.coffeebakery.LoginActivity.gmail;
-import static com.example.coffeebakery.LoginActivity.uid;
-
+import static com.example.coffeebakery.SplashActivity.uid;
 public class DetailReceiptActivity extends AppCompatActivity {
 
     TextView ten_kh, sdt_kh, diachi, madon, ngaydat, thanhtien, tongmon, tongcong, phigh;

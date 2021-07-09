@@ -3,7 +3,10 @@ package com.example.coffeebakery;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,16 +23,22 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import static com.example.coffeebakery.SplashActivity.uid;
+import static com.example.coffeebakery.SplashActivity.gmail;
 
 public class LoginActivity extends AppCompatActivity {
 
     EditText edtusernamedn, edtpassworddn;
     Button btndangnhap;
     TextView txtdangky, txtquenmatkhau;
-
+    private static DatabaseReference conn = FirebaseDatabase.getInstance().getReference();
     public static FirebaseAuth mAuth;
-    public static String gmail = "";
-    public static String uid = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +48,6 @@ public class LoginActivity extends AppCompatActivity {
 
         Anhxa();
         edtusernamedn.requestFocus();
-
         //Không được để trống tên đăng nhập
         edtusernamedn.addTextChangedListener(new TextWatcher() {
             @Override
@@ -124,6 +132,12 @@ public class LoginActivity extends AppCompatActivity {
                             uid = currentUser.getUid();
                             gmail = edtusernamedn.getText().toString();
                             Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_LONG).show();
+                            WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+                            WifiInfo info = manager.getConnectionInfo();
+                            String address = info.getMacAddress();
+                            Remember re = new Remember(gmail,uid,address);
+                            conn.child("Ghi nhớ đăng nhập").child(uid).setValue(re);
+
                             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                             startActivity(intent);
                         } else {

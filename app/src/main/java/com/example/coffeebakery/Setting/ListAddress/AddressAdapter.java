@@ -7,23 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.coffeebakery.Cart.OrderActivity;
-import com.example.coffeebakery.DetailReceipt.DetailReceiptActivity;
 import com.example.coffeebakery.R;
-import com.example.coffeebakery.Receipt.ReceiptAdapter;
-import com.example.coffeebakery.Receipt.ReceiptsActivity;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.List;
-import static com.example.coffeebakery.LoginActivity.uid;
 
 public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.Holder>{
 

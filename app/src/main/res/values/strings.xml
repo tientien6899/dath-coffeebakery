@@ -5,6 +5,8 @@
     <string name="title_sanpham">Sản phẩm</string>
     <string name="title_giohang">Giỏ hàng</string>
     <string name="title_caidat">Cài đặt</string>
+    <string name="channel_name">Test channel name</string>
+    <string name="channel_description">Test channel description</string>
     <string name="map_api_key">AIzaSyC2_AXZDLJQjjKKJtCG1Gijz2WQLLMlAZI</string>
 
     <menu xmlns:android="http://schemas.android.com/apk/res/android" tools:ignore="MissingTranslation">

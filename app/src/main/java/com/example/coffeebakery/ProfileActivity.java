@@ -17,8 +17,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import static com.example.coffeebakery.LoginActivity.gmail;
-import static com.example.coffeebakery.LoginActivity.uid;
+import static com.example.coffeebakery.SplashActivity.gmail;
+import static com.example.coffeebakery.SplashActivity.uid;
 
 public class ProfileActivity extends AppCompatActivity {
 
