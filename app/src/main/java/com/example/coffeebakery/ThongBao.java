@@ -1,27 +1,15 @@
 package com.example.coffeebakery;
 
-import com.google.firebase.database.DataSnapshot;
-
 public class ThongBao {
-    int mathongbao;
     String tieude;
     String noidung;
 
     public ThongBao() {
     }
 
-    public ThongBao(int mathongbao, String tieude, String noidung) {
-        this.mathongbao = mathongbao;
+    public ThongBao(String tieude, String noidung) {
         this.tieude = tieude;
         this.noidung = noidung;
-    }
-
-    public int getMathongbao() {
-        return mathongbao;
-    }
-
-    public void setMathongbao(int mathongbao) {
-        this.mathongbao = mathongbao;
     }
 
     public String getTieude() {
