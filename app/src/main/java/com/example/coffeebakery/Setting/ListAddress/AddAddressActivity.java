@@ -32,7 +32,7 @@ public class AddAddressActivity extends AppCompatActivity {
         luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mData.child("Sổ địa chỉ").child(uid).addValueEventListener(new ValueEventListener() {
+                mData.child("Sổ địa chỉ").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String temp_hoten = hoten.getText().toString();
