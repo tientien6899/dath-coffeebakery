@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import static com.example.coffeebakery.HomeActivity.mData;
-import static com.example.coffeebakery.LoginActivity.uid;
+import static com.example.coffeebakery.SplashActivity.uid;
 public class AddAddressActivity extends AppCompatActivity {
 
     EditText hoten, sdt, sonha;

@@ -5,10 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,21 +14,19 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.coffeebakery.CSKHActivity;
 import com.example.coffeebakery.LoginActivity;
 import com.example.coffeebakery.ProfileActivity;
 import com.example.coffeebakery.R;
-
 import com.example.coffeebakery.Receipt.ReceiptsActivity;
 import com.example.coffeebakery.Setting.ListAddress.ListAddressActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
-
 import static com.example.coffeebakery.HomeActivity.mData;
-import static com.example.coffeebakery.LoginActivity.uid;
+import static com.example.coffeebakery.SplashActivity.gmail;
+import static com.example.coffeebakery.SplashActivity.uid;
 
 public class SettingFragment extends Fragment {
 
@@ -142,7 +138,9 @@ public class SettingFragment extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Toast.makeText(v.getContext(), "Hẹn gặp lại bạn nhé!", Toast.LENGTH_SHORT).show();
-                                mAuth.signOut();
+                                mData.child("Ghi nhớ đăng nhập").child(uid).removeValue();
+                                uid = "";
+                                gmail = "";
                                 Intent intent = new Intent(view.getContext(), LoginActivity.class);
                                 startActivity(intent);
                                 dialogInterface.cancel();
