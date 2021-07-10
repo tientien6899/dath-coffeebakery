@@ -30,7 +30,7 @@ public class ReceiptsActivity extends AppCompatActivity {
         Context context = this.getApplicationContext();
         AnhXa();
         listReceipt = new ArrayList<Receipt>();
-        mData.child("Đơn hàng").child("Thông tin").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+        mData.child("Đơn hàng").child("Thông tin").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot data : snapshot.getChildren()){

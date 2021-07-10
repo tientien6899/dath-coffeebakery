@@ -203,7 +203,7 @@ public class OrderActivity extends AppCompatActivity {
 
                                     tamtinhdonhang = 0;
                                     //tạo đơn hàng
-                                    mData.child("Đơn hàng").child("Thông tin").child(uid).child(re.getMadon()).setValue(re);
+                                    mData.child("Đơn hàng").child("Thông tin").child(re.getMadon()).setValue(re);
 
                                     //tạo giỏ hàng
                                     mData.child("Giỏ hàng").child(uid).child("Cart"+STT).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -245,8 +245,8 @@ public class OrderActivity extends AppCompatActivity {
 
                                                     }
                                                 });
+                                                mData.child("Đơn hàng").child("Chi tiết").child(c.getGiohang()).child(c.getSttgiohang()).setValue(c);
 
-                                                mData.child("Đơn hàng").child("Chi tiết").child(uid).child(c.getGiohang()).child(c.getSttgiohang()).setValue(c);
                                             }
                                         }
                                     }

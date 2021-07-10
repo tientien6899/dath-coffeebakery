@@ -7,7 +7,11 @@
     <string name="title_caidat">Cài đặt</string>
     <string name="channel_name">Test channel name</string>
     <string name="channel_description">Test channel description</string>
+    <string name="need_location">Bật dịch vụ Google</string>
+    <string name="location_content">Ứng dụng này muốn thay đổi cài đặt thiết bị của bạn bằng cách sử dụng GPS, Wi-Fi và mạng di động cho vị trí của bạn</string>
+    <string name="total_online_drivers">Total Online Drivers :</string>
     <string name="map_api_key">AIzaSyC2_AXZDLJQjjKKJtCG1Gijz2WQLLMlAZI</string>
+    <string name="google_maps_api">AIzaSyAsXJ2dOPwVbFbzisK_zRuNYZfevr1GX3o</string>
 
     <menu xmlns:android="http://schemas.android.com/apk/res/android" tools:ignore="MissingTranslation">
         <item android:id="@+id/navigation_trangchu" android:title="@string/title_trangchu" />

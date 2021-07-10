@@ -7,6 +7,11 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.ACTION_SEND" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <permission
+        android:name="com.example.coffeebakery.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"/>
 
     <application
         android:allowBackup="true"
@@ -43,11 +48,16 @@
         <activity android:name=".Home.DetailTapChiActivity" />
 
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/map_api_key" />
-        <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_api"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
         <activity android:name=".DeliveryActivity" />
         <activity android:name=".DetailReceipt.DetailReceiptActivity" />
