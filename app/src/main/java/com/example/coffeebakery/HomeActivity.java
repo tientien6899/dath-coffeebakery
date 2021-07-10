@@ -4,7 +4,10 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
@@ -46,6 +49,32 @@ public class HomeActivity extends AppCompatActivity {
                                 .setAutoCancel(true);
                         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(HomeActivity.this);
                         managerCompat.notify(1, builder.build());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        mData.child("Thông báo").child("Thông báo xác nhận đơn hàng").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot data : snapshot.getChildren()){
+                        ThongBao tb = data.getValue(ThongBao.class);
+                        if(tb.getUserid().contains(uid)){
+                            NotificationCompat.Builder builder = new NotificationCompat.Builder(HomeActivity.this, "CHANNEL_ID")
+                                    .setSmallIcon(R.drawable.ic_outline_notifications_none_24)
+                                    .setContentTitle(tb.tieude)
+                                    .setContentText(tb.noidung)
+                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                    .setAutoCancel(true);
+                            NotificationManagerCompat managerCompat = NotificationManagerCompat.from(HomeActivity.this);
+                            managerCompat.notify(1, builder.build());
+                        }
                     }
                 }
             }

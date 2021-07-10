@@ -49,21 +49,39 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.Holder>{
         holder.ngaydat.setText(re.getNgaydat());
 
         String md = re.getMadon();
-        myData.child("Đơn hàng").child("Chi tiết").child(uid).child(md).addListenerForSingleValueEvent(new ValueEventListener() {
+        myData.child("Đơn hàng").child("Chi tiết").child(md).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int tongtien = 0;
+                long count = snapshot.getChildrenCount();
                 for(DataSnapshot data : snapshot.getChildren()){
-                    String gh = data.child("giohang").getValue().toString();
-                    if(gh.contains(md)){
-                        String sttgh = data.child("sttgiohang").getValue().toString();
-                        if(sttgh.contains("1")){
-                            holder.tenmon.setText(data.child("ten").getValue().toString());
-                            holder.dongia.setText(data.child("gia").getValue().toString());
-                            Glide.with(holder.hinhanh.getContext()).load(data.child("hinhanh").getValue().toString()).into(holder.hinhanh);
+                    String temp_stt = data.child("sttgiohang").getValue().toString();
+                    if(temp_stt.contains("1")){
+                        String temp_tenmon = data.child("ten").getValue().toString();
+                        if (count > 1) {
+                            holder.tenmon.setText(temp_tenmon + " + " + (count - 1) + " món khác");
                         }
+                        else {
+                            holder.tenmon.setText(temp_tenmon);
+                        }
+
+                    }
+                    String temp_tongtien = data.child("tongtien").getValue().toString();
+                    tongtien += Integer.parseInt(temp_tongtien.replace(".",""));
+                }
+                if(tongtien >= 1000000){
+                    int trieu = tongtien / 1000000;
+                    int ngan = tongtien % 1000000;
+                    if(ngan >= 1000){
+                        int tram = ngan / 1000;
+                        holder.dongia.setText(trieu + "." + tram + ".000");
+                    }
+                }else {
+                    if(tongtien >= 1000){
+                        int ngan = tongtien / 1000;
+                        holder.dongia.setText(ngan + ".000");
                     }
                 }
-                holder.xemthem.setText("Xem thêm");
             }
 
             @Override
@@ -91,14 +109,6 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.Holder>{
                 Context context = view.getContext();
                 Intent intent = new Intent(context, DetailReceiptActivity.class);
                 intent.putExtra("MADON",re.getMadon());
-                intent.putExtra("MAGIOHANG",re.getMadon());
-                intent.putExtra("TONGTIEN",re.getTongtien());
-                intent.putExtra("NGAYDAT",re.getNgaydat());
-                intent.putExtra("HOTEN",re.getHoten());
-                intent.putExtra("SDT",re.getSdt());
-                intent.putExtra("SONHA",re.getSonha());
-                intent.putExtra("SHIP",re.getShip());
-                intent.putExtra("TAMTINH",re.getTamtinh());
                 context.startActivity(intent);
             }
         });
@@ -111,19 +121,14 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.Holder>{
     }
 
     public class Holder extends RecyclerView.ViewHolder {
-        TextView madon, ngaydat, tenmon, dongia, xemthem, trangthai;
-        Button datlai;
-        ImageView hinhanh;
+        TextView madon, ngaydat, tenmon, dongia, trangthai;
         public Holder(@NonNull View itemView) {
             super(itemView);
             madon = (TextView) itemView.findViewById(R.id.txt_IDDonhang);
             ngaydat = (TextView) itemView.findViewById(R.id.txt_Thoigiandat);
             tenmon = (TextView) itemView.findViewById(R.id.txt_TenSpReceipt);
             dongia = (TextView) itemView.findViewById(R.id.txt_GiaSpReceipt);
-            xemthem = (TextView) itemView.findViewById(R.id.txt_XemThem);
             trangthai = (TextView) itemView.findViewById(R.id.txt_ReceiptStatus);
-            datlai = (Button) itemView.findViewById(R.id.btn_DatLai);
-            hinhanh = (ImageView) itemView.findViewById(R.id.img_HinhReceipt);
         }
     }
 }

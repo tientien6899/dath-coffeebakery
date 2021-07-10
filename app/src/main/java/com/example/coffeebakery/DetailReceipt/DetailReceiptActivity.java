@@ -52,7 +52,6 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
     RecyclerView recyclerView;
     DetailReveiptAdapter adapter;
     ArrayList<DetailReceipt> listchitiet;
-    public static int tongslmon = 0;
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 2161;
     private static final String ONLINE_DRIVERS = "Tài Xế";
     private final GoogleMapHelper googleMapHelper = new GoogleMapHelper();
@@ -104,33 +103,28 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
 
         Intent intent = getIntent();
         String md = intent.getStringExtra("MADON");
-        String nd = intent.getStringExtra("NGAYDAT");
-        String tt = intent.getStringExtra("TONGTIEN");
-        String mgh = intent.getStringExtra("MAGIOHANG");
-        String pgh = intent.getStringExtra("SHIP");
-        String temp_tamtinh = intent.getStringExtra("TAMTINH");
         madon.setText(md);
-        ngaydat.setText(nd);
-        thanhtien.setText(tt);
-        phigh.setText(pgh);
-        thanhtien.setText(temp_tamtinh);
 
         listchitiet = new ArrayList<DetailReceipt>();
-        data.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
+        data.child("Đơn hàng").child("Thông tin").child(md).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot snap : snapshot.getChildren()){
-                    String userid = snap.child("nguoidung").getValue().toString();
-                    String tep_md = snap.child("madon").getValue().toString();
-                    if(userid.contains(uid) && tep_md.contains(md)){
-                        String hoten = snap.child("hoten").getValue().toString();
-                        String sdt = snap.child("sdt").getValue().toString();
-                        String sonha = snap.child("sonha").getValue().toString();
-                        ten_kh.setText(hoten);
-                        sdt_kh.setText(sdt);
-                        diachi.setText(sonha);
-                    }
-                }
+                String userid = snapshot.child("nguoidung").getValue().toString();
+                String tep_md = snapshot.child("madon").getValue().toString();
+                String temp_hoten = snapshot.child("hoten").getValue().toString();
+                String temp_sdt = snapshot.child("sdt").getValue().toString();
+                String temp_sonha = snapshot.child("sonha").getValue().toString();
+                String temp_ngaydat = snapshot.child("ngaydat").getValue().toString();
+                String temp_tamtinh = snapshot.child("tamtinh").getValue().toString();
+                String temp_thanhtien = snapshot.child("tongtien").getValue().toString();
+                String temp_ship = snapshot.child("ship").getValue().toString();
+                ten_kh.setText(temp_hoten);
+                sdt_kh.setText(temp_sdt);
+                diachi.setText(temp_sonha);
+                ngaydat.setText(temp_ngaydat);
+                tongcong.setText(temp_thanhtien);
+                phigh.setText(temp_ship);
+                thanhtien.setText(temp_tamtinh);
             }
 
             @Override
@@ -142,9 +136,10 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
         data.child("Đơn hàng").child("Chi tiết").child(md).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int tongslmon = 0;
                 for(DataSnapshot snap : snapshot.getChildren()){
                     String giohang = snap.child("giohang").getValue().toString();
-                    if(giohang.contains(mgh)){
+                    if(giohang.contains(md)){
                         String link = snap.child("hinhanh").getValue().toString();
                         String sl = snap.child("soluong").getValue().toString();
                         String ten = snap.child("ten").getValue().toString();
@@ -175,8 +170,6 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
 
             }
         });
-
-        tongcong.setText(tt);
     }
 
     private void animateCamera(LatLng latLng) {
