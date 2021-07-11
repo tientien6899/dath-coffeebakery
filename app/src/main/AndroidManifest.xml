@@ -6,12 +6,13 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.ACTION_SEND" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <permission
         android:name="com.example.coffeebakery.permission.MAPS_RECEIVE"
-        android:protectionLevel="signature"/>
+        android:protectionLevel="signature" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Cart.OrderActivity"></activity>
+        <activity android:name=".Setting.ChinhSach.CTDSActivity"></activity>
+        <activity android:name=".Setting.ChinhSach.ChinhSachActivity" />
+        <activity android:name=".Cart.OrderActivity" />
         <activity android:name=".Setting.ListAddress.AddAddressActivity" />
         <activity android:name=".Setting.ListAddress.ListAddressActivity" />
         <activity android:name=".Receipt.ReceiptsActivity" />
@@ -40,10 +43,6 @@
         <activity android:name=".DanhMuc.JuiceActivity" />
         <activity android:name=".DanhMuc.FreezeeActivity" />
         <activity android:name=".DanhMuc.CoffeeActivity" />
-        <activity android:name=".Setting.ThanhToanActivity" />
-        <activity android:name=".Setting.VanChuyenActivity" />
-        <activity android:name=".Setting.ChungActivity" />
-        <activity android:name=".Setting.BaoMatActivity" />
         <activity android:name=".Setting.LienHeActivity" />
         <activity android:name=".Home.DetailTapChiActivity" />
 
@@ -52,12 +51,14 @@
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
-
+            android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_api"/>
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+            android:value="@string/google_maps_api" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <activity android:name=".DeliveryActivity" />
         <activity android:name=".DetailReceipt.DetailReceiptActivity" />

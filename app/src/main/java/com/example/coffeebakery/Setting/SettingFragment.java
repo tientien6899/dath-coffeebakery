@@ -20,6 +20,7 @@ import com.example.coffeebakery.LoginActivity;
 import com.example.coffeebakery.ProfileActivity;
 import com.example.coffeebakery.R;
 import com.example.coffeebakery.Receipt.ReceiptsActivity;
+import com.example.coffeebakery.Setting.ChinhSach.ChinhSachActivity;
 import com.example.coffeebakery.Setting.ListAddress.ListAddressActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -141,6 +142,14 @@ public class SettingFragment extends Fragment {
             }
         });
 
+        chinhsachdieukhoan = v.findViewById(R.id.Setting_Chinhsachdieukhoan);
+        chinhsachdieukhoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = v.getContext();
+                startActivity(new Intent(context, ChinhSachActivity.class));
+            }
+        });
 
         dangxuat = v.findViewById(R.id.btn_Dangxuat);
         dangxuat.setOnClickListener(new View.OnClickListener() {
