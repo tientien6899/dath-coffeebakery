@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="22dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="15dp"
     android:layout_marginRight="22dp"
     android:background="@color/white"
     android:orientation="vertical">
@@ -11,20 +11,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/txt_IDDonhang"
-            android:layout_width="200dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:gravity="center|left"
-            android:text="223232323" />
-        </LinearLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|left" />
+
+        <TextView
+            android:id="@+id/txt_Thoigiandat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|right"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
         <TextView
@@ -45,35 +52,32 @@
             android:layout_marginLeft="10dp"
             android:gravity="center|right"
             android:hint="65.000"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textColor="@color/gray"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:gravity="center|right"
-            android:hint=" đ"
-            android:textSize="16dp" />
+            android:layout_marginLeft="3dp"
+            android:text="đ"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="5dp">
-
-        <TextView
-            android:id="@+id/txt_Thoigiandat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center|left"
-            android:text="20/11/2020" />
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txt_ReceiptStatus"
-            android:layout_width="200dp"
-            android:layout_height="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center|left"
             android:hint="Hoan thanh" />
@@ -82,7 +86,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.7dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:background="@color/whitegray" />
 
 </LinearLayout>

@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.coffeebakery.CSKHActivity;
+import com.example.coffeebakery.DevelopingActivity;
 import com.example.coffeebakery.LoginActivity;
 import com.example.coffeebakery.ProfileActivity;
 import com.example.coffeebakery.R;
@@ -116,6 +117,26 @@ public class SettingFragment extends Fragment {
             public void onClick(View v) {
                 Context context = v.getContext();
                 Intent intent = new Intent(context, CSKHActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+        thongtinthanhtoan = v.findViewById(R.id.Setting_Thongtinthanhtoan);
+        thongtinthanhtoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                Intent intent = new Intent(context, DevelopingActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+        danhsachyeuthich = v.findViewById(R.id.Setting_Dsyeuthich);
+        danhsachyeuthich.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                Intent intent = new Intent(context, DevelopingActivity.class);
                 context.startActivity(intent);
             }
         });
