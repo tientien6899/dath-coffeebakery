@@ -13,17 +13,17 @@
         android:layout_height="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/ic_outline_keyboard_backspace_24"/>
+        android:background="@drawable/ic_outline_keyboard_backspace_24" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/nunito_bold"
         android:text="Đăng nhập"
         android:textColor="@color/green"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,10 +36,11 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:background="@drawable/edt_trang"
+            android:fontFamily="@font/nunito"
             android:hint="Tên đăng nhập"
             android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
-            android:textColor="@color/green"
+            android:textColor="@color/gray"
             android:textSize="15dp" />
 
         <EditText
@@ -48,35 +49,28 @@
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/edt_trang"
+            android:fontFamily="@font/nunito"
             android:hint="Mật khẩu"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
-            android:textColor="@color/green"
+            android:textColor="@color/gray"
             android:textSize="15dp" />
 
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
-
-            <CheckBox
-                android:id="@+id/cb_Ghinho"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ghi nhớ"
-                android:textColor="@color/green"
-                android:textSize="17sp" />
+            android:layout_marginTop="15dp"
+            android:gravity="right"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/txt_QuenMK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
                 android:text="Quên mật khẩu"
                 android:textColor="@color/red"
-                android:textSize="19dp"
-                android:textStyle="bold" />
+                android:textSize="19dp" />
         </LinearLayout>
 
         <Button
@@ -85,35 +79,36 @@
             android:layout_height="60dp"
             android:layout_marginTop="50dp"
             android:background="@drawable/button_xanh"
+            android:fontFamily="@font/nunito_bold"
             android:text="Đăng nhập"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textSize="25sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
             android:text="Bạn chưa có tài khoản ?"
-            android:textSize="17sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/txt_Dangky"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đăng ký"
             android:layout_marginLeft="5dp"
-            android:textSize="21sp"
-            android:textStyle="bold"
-            android:textColor="@color/red"/>
+            android:fontFamily="@font/nunito_bold"
+            android:text="Đăng ký"
+            android:textColor="@color/red"
+            android:textSize="21sp" />
     </LinearLayout>
 </LinearLayout>

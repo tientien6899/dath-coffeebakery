@@ -22,7 +22,7 @@
             android:text="Topping"
             android:textColor="@color/green"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/nunito_bold"/>
 
     </LinearLayout>
 
@@ -43,7 +43,8 @@
             android:queryHint="Tìm kiếm ..."
             android:textColor="@color/black"
             android:textColorHint="#7e7e7e"
-            android:textSize="11.7sp" />
+            android:textSize="11.7sp"
+            android:fontFamily="@font/nunito"/>
 
     </LinearLayout>
 

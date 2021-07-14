@@ -17,14 +17,16 @@
             android:id="@+id/txt_IDDonhang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center|left" />
+            android:gravity="center|left"
+            android:fontFamily="@font/nunito"/>
 
         <TextView
             android:id="@+id/txt_Thoigiandat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center|right"
-            android:layout_weight="1" />
+            android:fontFamily="@font/nunito"/>
 
     </LinearLayout>
 
@@ -39,32 +41,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/nunito_bold"
             android:gravity="center|left"
             android:hint="Trà đào đá xay"
             android:textColor="@color/black"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/txt_GiaSpReceipt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:fontFamily="@font/nunito_bold"
             android:gravity="center|right"
             android:hint="65.000"
-            android:textSize="16dp"
             android:textColor="@color/gray"
-            android:textStyle="bold"/>
+            android:textSize="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center|right"
             android:layout_marginLeft="3dp"
+            android:fontFamily="@font/nunito_bold"
+            android:gravity="center|right"
             android:text="đ"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="@color/gray"/>
+            android:textColor="@color/gray"
+            android:textSize="16dp" />
 
     </LinearLayout>
 
@@ -80,7 +82,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:hint="Hoan thanh" />
+            android:hint="Hoan thanh"
+            android:fontFamily="@font/nunito"/>
     </LinearLayout>
 
     <View

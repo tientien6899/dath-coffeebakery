@@ -22,7 +22,7 @@
             android:text="Địa chỉ mới"
             android:textColor="@color/green"
             android:textSize="23sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/nunito_bold" />
 
         <Button
             android:id="@+id/txt_luu"
@@ -34,7 +34,8 @@
             android:text="Lưu"
             android:textAllCaps="false"
             android:textColor="@color/blue"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            android:fontFamily="@font/nunito_bold"/>
     </LinearLayout>
 
     <ScrollView
@@ -53,6 +54,7 @@
                 android:layout_marginTop="20dp"
                 android:text="Họ tên"
                 android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
                 android:textSize="17dp" />
 
             <EditText
@@ -67,8 +69,9 @@
                 android:background="@drawable/edt_trang"
                 android:hint="Nhập họ tên"
                 android:inputType="text"
-                android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textColor="@color/gray"
+                android:textSize="16dp"
+                android:fontFamily="@font/nunito"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -77,6 +80,7 @@
                 android:layout_marginTop="30dp"
                 android:text="Số điện thoại"
                 android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
                 android:textSize="17dp" />
 
             <EditText
@@ -91,7 +95,8 @@
                 android:inputType="phone"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
                 android:textSize="16dp" />
 
             <TextView
@@ -101,6 +106,7 @@
                 android:layout_marginTop="30dp"
                 android:text="Địa chỉ"
                 android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
                 android:textSize="17dp" />
 
             <EditText
@@ -111,11 +117,12 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="22dp"
                 android:background="@drawable/edt_trang"
-                android:hint="Nhập tên sản phẩm ..."
+                android:hint="Nhập địa chỉ"
                 android:inputType="text"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
                 android:textSize="16dp" />
 
         </LinearLayout>

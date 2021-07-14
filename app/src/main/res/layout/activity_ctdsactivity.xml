@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".Setting.ChinhSach.CTDSActivity">
 
@@ -18,18 +18,18 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="30dp"
+            android:layout_marginRight="22dp"
             android:layout_weight="1"
             android:textColor="@color/green"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textSize="23sp"
+            android:fontFamily="@font/nunito_bold" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
+        android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -39,9 +39,13 @@
                 android:id="@+id/txt_noidungchinhsach"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="noi dung"/>
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="22dp"
+                android:textColor="@color/gray"
+                android:textSize="13sp"
+                android:fontFamily="@font/nunito"/>
 
         </ScrollView>
     </LinearLayout>
-
 </LinearLayout>

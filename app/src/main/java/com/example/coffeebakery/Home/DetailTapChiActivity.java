@@ -47,7 +47,6 @@ public class DetailTapChiActivity extends AppCompatActivity {
 
 
     private void AnhXa() {
-        back = findViewById(R.id.img_BackDSSP);
         tieude = findViewById(R.id.thongtintapchi_tieude);
         ngaydang = findViewById(R.id.thongtintapchi_ngaydang);
         noidung = findViewById(R.id.thongtintapchi_noidung);

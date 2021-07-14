@@ -47,7 +47,7 @@
                         android:hint="Trà đào đá xay"
                         android:textColor="@color/gray"
                         android:textSize="21sp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/nunito_bold" />
 
                     <TextView
                         android:id="@+id/txt_DetailMotaSP"
@@ -56,7 +56,8 @@
                         android:layout_marginLeft="22dp"
                         android:hint="Green Tea Ice Blended"
                         android:textColor="@color/gray"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:fontFamily="@font/nunito"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -82,7 +83,7 @@
                     android:hint="65.000"
                     android:textColor="@color/green"
                     android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_semibold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -90,7 +91,7 @@
                     android:text=" đ"
                     android:textColor="@color/green"
                     android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_semibold" />
             </LinearLayout>
 
             <LinearLayout
@@ -106,7 +107,7 @@
                     android:text="Số lượng"
                     android:textColor="@color/gray"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_semibold" />
 
                 <Button
                     android:id="@+id/btn_GiamSL"
@@ -124,7 +125,7 @@
                     android:layout_marginRight="15dp"
                     android:text="1"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_semibold" />
 
                 <Button
                     android:id="@+id/btn_TangSL"
@@ -147,7 +148,7 @@
                     android:text="Kích thước"
                     android:textColor="@color/gray"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_semibold" />
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -161,7 +162,8 @@
                         android:checked="true"
                         android:gravity="center|left"
                         android:text="Nhỏ (S)"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:fontFamily="@font/nunito"/>
 
                     <RadioButton
                         android:id="@+id/rb_Vua"
@@ -170,7 +172,8 @@
                         android:layout_marginLeft="22dp"
                         android:enabled="true"
                         android:text="Vừa (M)"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:fontFamily="@font/nunito"/>
 
                     <RadioButton
                         android:id="@+id/rb_Lon"
@@ -180,7 +183,8 @@
                         android:layout_marginBottom="7dp"
                         android:enabled="true"
                         android:text="Lớn (L)"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:fontFamily="@font/nunito"/>
                 </RadioGroup>
 
             </LinearLayout>
@@ -198,7 +202,7 @@
                     android:text="Ghi chú"
                     android:textColor="@color/gray"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_semibold" />
 
                 <EditText
                     android:id="@+id/edt_Ghichu"
@@ -213,7 +217,8 @@
                     android:maxLength="100"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
-                    android:textSize="13sp" />
+                    android:textSize="13sp"
+                    android:fontFamily="@font/nunito"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -240,7 +245,7 @@
                 android:text="Trà đào đá xay"
                 android:textColor="@color/white"
                 android:textSize="17sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/nunito_semibold" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -255,7 +260,7 @@
                     android:hint="65.000"
                     android:textColor="@color/yellow"
                     android:textSize="21sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_semibold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -263,7 +268,7 @@
                     android:text=" đ"
                     android:textColor="@color/yellow"
                     android:textSize="21sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_semibold" />
             </LinearLayout>
 
         </LinearLayout>
@@ -283,7 +288,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/green"
                 android:textSize="13sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/nunito_semibold" />
 
         </LinearLayout>
     </LinearLayout>

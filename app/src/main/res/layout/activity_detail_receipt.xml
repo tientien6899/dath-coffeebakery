@@ -21,7 +21,7 @@
             android:text="Chi tiết đơn hàng"
             android:textColor="@color/green"
             android:textSize="23sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/nunito_bold" />
 
     </LinearLayout>
 
@@ -36,31 +36,103 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:orientation="vertical"
-                android:layout_margin="10dp">
+                android:layout_height="200dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="22dp"
+                android:orientation="vertical">
 
                 <fragment
                     android:id="@+id/supportMap"
                     android:name="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:context="spartons.com.frisbeeGo.fragments.MapFragment"/>
+                    tools:context="spartons.com.frisbeeGo.fragments.MapFragment" />
 
                 <TextView
                     android:id="@+id/totalOnlineDrivers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="30dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="40dp"
+                    android:layout_marginEnd="30dp"
                     android:background="#FFFFFF"
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Total Online Drivers : 0"
                     android:textColor="#000000"
                     android:textSize="15sp"
-                    tools:ignore="HardcodedText"/>
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Thông tin tài xế"
+                        android:textColor="@color/gray"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/nunito_bold" />
+
+                    <ImageButton
+                        android:id="@+id/goidientaixe"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_outline_phone_in_talk_24"/>
+
+                    <ImageButton
+                        android:id="@+id/nhantintaixe"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="22dp"
+                        android:background="@drawable/ic_round_chat_24"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_Tentaixe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="22dp"
+                        android:textColor="@color/gray"
+                        android:fontFamily="@font/nunito"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/txt_SDTtaixe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="22dp"
+                        android:textColor="@color/gray"
+                        android:fontFamily="@font/nunito"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -77,7 +149,7 @@
                     android:text="Thông tin khách hàng"
                     android:textColor="@color/gray"
                     android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -92,6 +164,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="22dp"
                         android:textColor="@color/gray"
+                        android:fontFamily="@font/nunito"
                         android:textSize="14sp" />
 
                     <TextView
@@ -102,6 +175,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="22dp"
                         android:textColor="@color/gray"
+                        android:fontFamily="@font/nunito"
                         android:textSize="13sp" />
 
                     <TextView
@@ -112,7 +186,8 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="22dp"
                         android:textColor="@color/gray"
-                        android:textSize="13sp"  />
+                        android:fontFamily="@font/nunito"
+                        android:textSize="13sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -130,7 +205,7 @@
                     android:text="Thông tin đơn hàng"
                     android:textColor="@color/gray"
                     android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_bold"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -144,19 +219,20 @@
                         android:layout_marginLeft="22dp"
                         android:gravity="center|left"
                         android:text="Mã đơn hàng"
+                        android:fontFamily="@font/nunito"
                         android:textSize="14dp" />
 
                     <TextView
                         android:id="@+id/txt_Madonhang"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="22dp"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginRight="22dp"
                         android:layout_weight="1"
                         android:gravity="center|right"
                         android:textColor="@color/gray"
-                        android:textStyle="bold"
-                        android:textSize="15dp"/>
+                        android:textSize="15dp"
+                        android:fontFamily="@font/nunito_semibold" />
 
                 </LinearLayout>
 
@@ -172,19 +248,20 @@
                         android:layout_marginLeft="22dp"
                         android:gravity="center|left"
                         android:text="Thời gian đặt hàng"
+                        android:fontFamily="@font/nunito"
                         android:textSize="14dp" />
 
                     <TextView
                         android:id="@+id/txt_Thoigiandathang"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="22dp"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginRight="22dp"
                         android:layout_weight="1"
                         android:gravity="center|right"
                         android:textColor="@color/gray"
-                        android:textStyle="bold"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:fontFamily="@font/nunito_semibold"/>
 
                 </LinearLayout>
 
@@ -200,20 +277,21 @@
                         android:layout_marginLeft="22dp"
                         android:gravity="center|left"
                         android:text="Phương thức thanh toán"
+                        android:fontFamily="@font/nunito"
                         android:textSize="14dp" />
 
                     <TextView
                         android:id="@+id/txt_Phuongthucthanhtoan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="22dp"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginRight="22dp"
                         android:layout_weight="1"
-                        android:text="Tiền mặt"
                         android:gravity="center|right"
+                        android:text="Tiền mặt"
                         android:textColor="@color/gray"
-                        android:textStyle="bold"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:fontFamily="@font/nunito_semibold" />
 
                 </LinearLayout>
 
@@ -234,7 +312,8 @@
                         android:layout_marginLeft="22dp"
                         android:gravity="center|left"
                         android:text="Số lượng"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:fontFamily="@font/nunito"/>
 
                     <TextView
                         android:id="@+id/txt_Soluongmon"
@@ -245,7 +324,7 @@
                         android:gravity="center|right"
                         android:textColor="@color/gray"
                         android:textSize="15dp"
-                        android:textStyle="bold"/>
+                        android:fontFamily="@font/nunito_semibold"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -255,7 +334,7 @@
                         android:text="món"
                         android:textColor="@color/gray"
                         android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/nunito_semibold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -270,7 +349,8 @@
                         android:layout_marginLeft="22dp"
                         android:gravity="center|left"
                         android:text="Tạm tính"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:fontFamily="@font/nunito"/>
 
                     <TextView
                         android:id="@+id/txt_chitiettamtinh"
@@ -280,8 +360,8 @@
                         android:layout_weight="1"
                         android:gravity="center|right"
                         android:textColor="@color/gray"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:textSize="17dp"
+                        android:fontFamily="@font/nunito_semibold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -290,8 +370,8 @@
                         android:gravity="center|left"
                         android:text="đ"
                         android:textColor="@color/gray"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:textSize="17dp"
+                        android:fontFamily="@font/nunito_semibold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -304,20 +384,31 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="22dp"
+                        android:layout_weight="1"
                         android:gravity="center|left"
                         android:text="Phí giao hàng"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:fontFamily="@font/nunito"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:gravity="center|right"
+                        android:text="+"
+                        android:textColor="@color/greenlight"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/nunito_semibold" />
 
                     <TextView
                         android:id="@+id/txt_chitietphigiaohang"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:layout_weight="1"
                         android:gravity="center|right"
-                        android:textColor="@color/gray"
+                        android:textColor="@color/greenlight"
                         android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/nunito_semibold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -325,9 +416,9 @@
                         android:layout_marginRight="22dp"
                         android:gravity="center|left"
                         android:text="đ"
-                        android:textColor="@color/gray"
+                        android:textColor="@color/greenlight"
                         android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/nunito_semibold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -343,27 +434,28 @@
                         android:layout_weight="1"
                         android:gravity="center|left"
                         android:text="Giảm giá"
-                        android:textSize="15dp" />
-
-                    <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:gravity="center|right"
-                    android:textColor="@color/red"
-                    android:text="-"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
+                        android:textSize="15dp"
+                        android:fontFamily="@font/nunito"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         android:gravity="center|right"
+                        android:text="-"
                         android:textColor="@color/red"
-                        android:text="0"
                         android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/nunito_semibold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:gravity="center|right"
+                        android:text="0"
+                        android:textColor="@color/red"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/nunito_semibold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -373,7 +465,7 @@
                         android:text="đ"
                         android:textColor="@color/red"
                         android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/nunito_semibold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -387,11 +479,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="22dp"
                         android:layout_marginRight="10dp"
-
                         android:text="TỔNG CỘNG"
                         android:textColor="@color/green"
                         android:textSize="22dp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/nunito_semibold" />
 
                     <TextView
                         android:id="@+id/txt_Tongcong"
@@ -401,9 +492,9 @@
                         android:layout_marginBottom="10dp"
                         android:layout_weight="1"
                         android:gravity="right"
+                        android:textColor="@color/green"
                         android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/green"/>
+                        android:fontFamily="@font/nunito_semibold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -413,7 +504,7 @@
                         android:text="đ"
                         android:textColor="@color/green"
                         android:textSize="22dp"
-                        android:textStyle="bold"/>
+                        android:fontFamily="@font/nunito_semibold" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -427,10 +518,10 @@
                     android:id="@+id/txt_trochuyentaixe"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:text="Trò chuyện với tài xế"
-                    android:textSize="16sp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
-                    android:layout_margin="10dp"/>
+                    android:text="Trò chuyện với tài xế"
+                    android:textSize="16sp" />
 
             </LinearLayout>
         </LinearLayout>
