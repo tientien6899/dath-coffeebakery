@@ -52,7 +52,6 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.Holder>{
         myData.child("Đơn hàng").child("Chi tiết").child(md).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int tongtien = 0;
                 long count = snapshot.getChildrenCount();
                 for(DataSnapshot data : snapshot.getChildren()){
                     String temp_stt = data.child("sttgiohang").getValue().toString();
@@ -66,9 +65,21 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.Holder>{
                         }
 
                     }
-                    String temp_tongtien = data.child("tongtien").getValue().toString();
-                    tongtien += Integer.parseInt(temp_tongtien.replace(".",""));
                 }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        myData.child("Đơn hàng").child("Thông tin").child(md).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int tongtien = 0;
+                String temp_tongtien = snapshot.child("tongtien").getValue().toString();
+                tongtien += Integer.parseInt(temp_tongtien.replace(".",""));
                 if(tongtien >= 1000000){
                     int trieu = tongtien / 1000000;
                     int ngan = tongtien % 1000000;
@@ -89,7 +100,6 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.Holder>{
 
             }
         });
-
 
         String tt = re.getTrangthai();
         if(tt.contains("Hoàn thành")){
