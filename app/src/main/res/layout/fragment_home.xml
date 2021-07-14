@@ -61,15 +61,15 @@
                     android:layout_weight="1"
                     android:text="Danh mục sản phẩm"
                     android:textColor="@color/green"
-                    android:textSize="15sp"
+                    android:textSize="17sp"
                     android:fontFamily="@font/nunito_bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:layout_marginLeft="30dp"
+                android:layout_marginTop="7dp"
                 android:layout_marginRight="30dp"
                 android:orientation="horizontal">
 
@@ -147,7 +147,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="70dp"
                 android:layout_marginRight="70dp"
                 android:orientation="horizontal">
@@ -205,7 +205,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="22dp"
                 android:orientation="horizontal">
 
@@ -215,7 +215,7 @@
                     android:layout_weight="1"
                     android:text="Sản phẩm mới"
                     android:textColor="@color/green"
-                    android:textSize="15sp"
+                    android:textSize="17sp"
                     android:fontFamily="@font/nunito_bold"/>
 
             </LinearLayout>
@@ -225,15 +225,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:nestedScrollingEnabled="false"
-                android:paddingLeft="12.7dp"
-                android:paddingTop="16.7dp" />
+                android:nestedScrollingEnabled="false" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="22dp"
                 android:orientation="horizontal">
 
@@ -243,7 +241,7 @@
                     android:layout_weight="1"
                     android:text="Sản phẩm bán chạy"
                     android:textColor="@color/green"
-                    android:textSize="15sp"
+                    android:textSize="17sp"
                     android:fontFamily="@font/nunito_bold" />
 
             </LinearLayout>
@@ -253,15 +251,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:nestedScrollingEnabled="false"
-                android:paddingLeft="12.7dp"
-                android:paddingTop="16.7dp" />
+                android:nestedScrollingEnabled="false" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="22dp"
                 android:orientation="horizontal">
 
@@ -271,7 +267,7 @@
                     android:layout_weight="1"
                     android:text="Tạp chí cà phê"
                     android:textColor="@color/green"
-                    android:textSize="15sp"
+                    android:textSize="17sp"
                     android:fontFamily="@font/nunito_bold" />
 
             </LinearLayout>
@@ -282,9 +278,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:nestedScrollingEnabled="false"
-                android:paddingLeft="16.7dp"
-                android:paddingTop="16.7dp" />
+                android:nestedScrollingEnabled="false"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </FrameLayout>
