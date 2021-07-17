@@ -20,6 +20,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import static com.example.coffeebakery.SplashActivity.gmail;
 import static com.example.coffeebakery.SplashActivity.uid;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -123,6 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (Strpass.equals(Strrepeatpass)) {
                         Dangky(Stremail, Strpass);
                         Intent intent = new Intent(RegisterActivity.this, ProfileActivity.class);
+                        gmail = edtusernamedk.getText().toString();
                         startActivity(intent);
                     } else {
                         Toast.makeText(RegisterActivity.this, "Mật khẩu không trùng khớp.", Toast.LENGTH_SHORT).show();
