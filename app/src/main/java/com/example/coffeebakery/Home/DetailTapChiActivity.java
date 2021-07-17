@@ -35,13 +35,13 @@ public class DetailTapChiActivity extends AppCompatActivity {
         noidung.setText(ndg);
         Glide.with(this).load(img).into(hinhanh);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), HomeActivity.class);
-                startActivity(intent);
-            }
-        });
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(view.getContext(), HomeActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 

@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class SplashActivity extends AppCompatActivity {
-    private static DatabaseReference conn = FirebaseDatabase.getInstance().getReference();
+    private static DatabaseReference conn = FirebaseDatabase.getInstance().getReference(); // cu phap khai bao truy xuat firebase
     private final int SPLASH_DISPLAY_LENGTH = 1000;
     public static String gmail = "";
     public static String uid = "";
@@ -30,16 +30,19 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-                WifiInfo info = manager.getConnectionInfo();
-                String address = info.getMacAddress();
+                //lay dia chi MAC tren thiet bi de luu dang nhap
+                WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE); // quan ly thiet bi wifi tren may
+                WifiInfo info = manager.getConnectionInfo(); //lay ket noi
+                String address = info.getMacAddress(); //lay dia chi MAC tren thiet bi
+
+                //kiem tra luu dang nhap tai khoan
                 conn.child("Ghi nhớ đăng nhập").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
                             for(DataSnapshot snap : snapshot.getChildren()){
                                 Remember re = snap.getValue(Remember.class);
-                                if(address.contains(re.getMAC())){
+                                if(address.contains(re.getMAC())){ //true neu ton tai, false neu khong co
                                     uid = re.getUserid();
                                     gmail = re.getTendangnhap();
                                     startActivity(new Intent(SplashActivity.this, HomeActivity.class));

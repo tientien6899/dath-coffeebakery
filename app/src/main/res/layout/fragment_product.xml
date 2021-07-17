@@ -50,7 +50,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/search"
                 android:inputType="text"
-                android:queryHint="Tìm kiếm ..."
+                android:queryHint="Tìm kiếm sản phẩm ..."
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray"
                 android:textSize="9sp"
