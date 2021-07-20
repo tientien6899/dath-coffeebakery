@@ -264,7 +264,8 @@ public class DetailProductActivity extends AppCompatActivity {
                         tongtien.getText().toString().trim(),
                         kichthuoc,
                         edt_ghichu.getText().toString().trim(),
-                        uid);
+                        uid,
+                        "");
                 myData.child("Giỏ hàng").child(uid).child("Cart" + STT).child(cart.getSttgiohang()).setValue(cart);
                 tongSL += Integer.parseInt(cart.getSoluong());
                 slmon++;

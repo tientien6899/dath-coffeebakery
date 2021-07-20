@@ -108,29 +108,49 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/txt_Tentaixe"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="22dp"
-                        android:textColor="@color/gray"
-                        android:fontFamily="@font/nunito"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:layout_weight="3">
 
-                    <TextView
-                        android:id="@+id/txt_SDTtaixe"
+                        <ImageView
+                            android:id="@+id/img_avatartaixe"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="22dp"
-                        android:textColor="@color/gray"
-                        android:fontFamily="@font/nunito"
-                        android:textSize="13sp" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/txt_Tentaixe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="22dp"
+                            android:textColor="@color/gray"
+                            android:fontFamily="@font/nunito"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/txt_SDTtaixe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="22dp"
+                            android:textColor="@color/gray"
+                            android:fontFamily="@font/nunito"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

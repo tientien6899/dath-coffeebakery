@@ -45,10 +45,11 @@ public class ReceiptsActivity extends AppCompatActivity {
                         String temp_sonha = data.child("sonha").getValue().toString();
                         String temp_ship = data.child("ship").getValue().toString();
                         String temp_tamtinh = data.child("tamtinh").getValue().toString();
+                        String temp_driverid = data.child("driverid").getValue().toString();
 
                         listReceipt.add(new Receipt(temp_madon,temp_ngaydat,temp_trangthai,
                                                     temp_tongtien,temp_nguoidung,temp_hoten,
-                                                    temp_sdt,temp_sonha,temp_ship,temp_tamtinh));
+                                                    temp_sdt,temp_sonha,temp_ship,temp_tamtinh,temp_driverid));
                     }
                 }
                 adapter = new ReceiptAdapter(listReceipt,context);

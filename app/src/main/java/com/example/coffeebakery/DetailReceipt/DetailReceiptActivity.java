@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -16,9 +17,11 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.coffeebakery.DetailReceipt.helpers.FirebaseEventListenerHelper;
 import com.example.coffeebakery.DetailReceipt.helpers.GoogleMapHelper;
 import com.example.coffeebakery.DetailReceipt.helpers.MarkerAnimationHelper;
@@ -48,7 +51,8 @@ import static com.example.coffeebakery.SplashActivity.uid;
 import static com.example.coffeebakery.SplashActivity.gmail;
 public class DetailReceiptActivity extends AppCompatActivity implements FirebaseDriverListener {
 
-    TextView ten_kh, sdt_kh, diachi, madon, ngaydat, thanhtien, tongmon, tongcong, phigh, trochuyen;
+    TextView ten_kh, sdt_kh, diachi, madon, ngaydat, thanhtien, tongmon, tongcong, phigh, trochuyen, tentaixe, sdttaixe;
+    ImageView avatartaixe;
     RecyclerView recyclerView;
     DetailReveiptAdapter adapter;
     ArrayList<DetailReceipt> listchitiet;
@@ -85,6 +89,7 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_receipt);
+        Context context = getApplicationContext();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.supportMap);
         uiHelper = new UiHelper(this);
         assert mapFragment != null;
@@ -118,6 +123,35 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
                 String temp_tamtinh = snapshot.child("tamtinh").getValue().toString();
                 String temp_thanhtien = snapshot.child("tongtien").getValue().toString();
                 String temp_ship = snapshot.child("ship").getValue().toString();
+                String temp_driverid = snapshot.child("driverid").getValue().toString();
+                if(temp_driverid != ""){
+                    data.child("Tài xế").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if(snapshot.exists()){
+                                for(DataSnapshot data : snapshot.getChildren()){
+                                    String driverid = data.child("driverid").getValue().toString();
+                                    if(temp_driverid.contains(driverid)){
+                                        String temp_tentaixe = data.child("driverName").getValue().toString();
+                                        String temp_sdttaixe = data.child("driverPhone").getValue().toString();
+                                        tentaixe.setText(temp_tentaixe);
+                                        sdttaixe.setText(temp_sdttaixe);
+                                        Glide.with(context).load(data.child("avatar").getValue().toString()).into(avatartaixe);
+                                    }
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+                else {
+                    tentaixe.setText("Đang tìm kiếm tài xế!");
+                    sdttaixe.setText("");
+                }
                 ten_kh.setText(temp_hoten);
                 sdt_kh.setText(temp_sdt);
                 diachi.setText(temp_sonha);
@@ -266,6 +300,9 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
         tongcong = (TextView) findViewById(R.id.txt_Tongcong);
         phigh = (TextView) findViewById(R.id.txt_chitietphigiaohang);
         trochuyen = findViewById(R.id.txt_trochuyentaixe);
+        tentaixe = findViewById(R.id.txt_Tentaixe);
+        sdttaixe = findViewById(R.id.txt_SDTtaixe);
+        avatartaixe = findViewById(R.id.img_avatartaixe);
     }
 
     public void back(View view) {

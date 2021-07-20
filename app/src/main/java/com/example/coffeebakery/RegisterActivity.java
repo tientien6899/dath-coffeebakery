@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.coffeebakery.Setting.ProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -134,7 +135,7 @@ public class RegisterActivity extends AppCompatActivity {
                 else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                     builder.setTitle("Thông báo")
-                            .setMessage("Vui lòng nhập đúng định dạng Gmail!")
+                            .setMessage("Vui lòng nhập lại thông tin!")
                             .setPositiveButton("Nhập lại", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {

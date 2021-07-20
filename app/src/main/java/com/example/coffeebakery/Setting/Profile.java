@@ -1,27 +1,23 @@
-package com.example.coffeebakery;
+package com.example.coffeebakery.Setting;
 
 public class Profile {
 
     public String hoten;
     public String sdt;
     public String sonha;
-    public String phuong;
-    public String quan;
-    public String thanhpho;
     public String gmail;
     public String userid;
+    public String avatar;
 
     public Profile() {
 
     }
 
-    public Profile(String hoten, String sdt, String sonha, String phuong, String quan, String thanhpho, String gmail, String ud) {
+    public Profile(String hoten, String sdt, String sonha, String ava, String gmail, String ud) {
         this.hoten = hoten;
         this.sdt = sdt;
         this.sonha = sonha;
-        this.phuong = phuong;
-        this.quan = quan;
-        this.thanhpho = thanhpho;
+        this.avatar = ava;
         this.gmail = gmail;
         this.userid = ud;
     }
@@ -47,32 +43,16 @@ public class Profile {
         return sonha;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     public void setSonha(String sonha) {
         this.sonha = sonha;
-    }
-
-    public String getPhuong() {
-        return phuong;
-    }
-
-    public void setPhuong(String phuong) {
-        this.phuong = phuong;
-    }
-
-    public String getQuan() {
-        return quan;
-    }
-
-    public void setQuan(String quan) {
-        this.quan = quan;
-    }
-
-    public String getThanhpho() {
-        return thanhpho;
-    }
-
-    public void setThanhpho(String thanhpho) {
-        this.thanhpho = thanhpho;
     }
 
     public String getGmail() {
