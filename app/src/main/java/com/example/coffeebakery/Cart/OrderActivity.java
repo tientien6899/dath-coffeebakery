@@ -221,22 +221,6 @@ public class OrderActivity extends AppCompatActivity {
 
                                                     }
                                                 });
-
-                                                mData.child("Đơn hàng").child("Tổng tiền").addListenerForSingleValueEvent(new ValueEventListener() {
-                                                    @Override
-                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                        int temp_total = 0;
-                                                        String temp_to = snapshot.child("Total").getValue().toString();
-                                                        temp_total = Integer.parseInt(temp_to) + Integer.parseInt(ca.getTongtien().replace(".",""));
-                                                        mData.child("Đơn hàng").child("Tổng tiền").child("Total").setValue(temp_total);
-                                                    }
-
-                                                    @Override
-                                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                                    }
-                                                });
-
                                                 mData.child("Đơn hàng").child("Chi tiết").child(ca.getGiohang()).child(ca.getSttgiohang()).setValue(ca);
                                             }
                                         }

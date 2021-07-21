@@ -116,7 +116,7 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.Holder>{
                 holder.trangthai.setText(tt);
                 holder.trangthai.setTextColor(Color.YELLOW);
                 break;
-            case "Hủy bỏ":
+            case "Hủy đơn":
                 holder.trangthai.setText(tt);
                 holder.trangthai.setTextColor(Color.RED);
                 break;

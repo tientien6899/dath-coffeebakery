@@ -48,19 +48,23 @@ public class SettingFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_setting, container, false);
 
         tongtieu = v.findViewById(R.id.txt_Tongchitieu);
+        tongdon = v.findViewById(R.id.txt_Tongdonhang);
         mData.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int t = 0;
+                int t = 0, d = 0;
                 if(snapshot.exists()){
                     for(DataSnapshot data : snapshot.getChildren()){
                         String temp_userid = data.child("nguoidung").getValue().toString();
-                        if(uid.contains(temp_userid)){
+                        if(uid.contains(temp_userid) && data.child("trangthai").getValue().toString().contains("Hoàn thành")){
                             String temp_to = data.child("tongtien").getValue().toString();
                             t += Integer.parseInt(temp_to.replace(".",""));
+                            d++;
                         }
                     }
                 }
+                if(t == 0)
+                    tongtieu.setText("0");
                 if(t >= 1000000){
                     int trieu = t / 1000000;
                     int ngan = t % 1000000;
@@ -74,26 +78,6 @@ public class SettingFragment extends Fragment {
                         tongtieu.setText(ngan + ".000");
                     }
                 }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        tongdon = v.findViewById(R.id.txt_Tongdonhang);
-        mData.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int d = 0;
-                if(snapshot.exists()){
-                    for(DataSnapshot data : snapshot.getChildren()){
-                        String temp_userid = data.child("nguoidung").getValue().toString();
-                        if(uid.contains(temp_userid)){
-                            d++;
-                        }
-                    }
-                }
                 tongdon.setText(d + "");
             }
 
@@ -102,7 +86,6 @@ public class SettingFragment extends Fragment {
 
             }
         });
-
         hotenuser = v.findViewById(R.id.txt_Hoten);
         mail = v.findViewById(R.id.txt_email);
         avatar = v.findViewById(R.id.img_Anhdaidien);
@@ -110,7 +93,6 @@ public class SettingFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-
                     hotenuser.setText(snapshot.child("hoten").getValue().toString());
                     mail.setText(snapshot.child("gmail").getValue().toString());
                     Glide.with(v.getContext()).load(snapshot.child("avatar").getValue().toString()).into(avatar);
