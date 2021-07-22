@@ -13,12 +13,13 @@ public class Cart {
     String ghichu;
     String soluong;
     String nguoidung;
+    String driverid;
 
     public Cart(){
 
     }
 
-    public Cart(String sttgh, String gh, String ma, String ten, String gia, String soluong, String hinhanh, String tongtien, String kichthuoc, String ghichu, String nguoidung) {
+    public Cart(String sttgh, String gh, String ma, String ten, String gia, String soluong, String hinhanh, String tongtien, String kichthuoc, String ghichu, String nguoidung, String driverid) {
         this.sttgiohang = sttgh;
         this.giohang = gh;
         this.ma = ma;
@@ -30,6 +31,7 @@ public class Cart {
         this.kichthuoc = kichthuoc;
         this.ghichu = ghichu;
         this.nguoidung = nguoidung;
+        this.driverid = driverid;
 
     }
     public String getSttgiohang() {
@@ -117,5 +119,13 @@ public class Cart {
 
     public void setNguoidung(String nguoidung) {
         this.nguoidung = nguoidung;
+    }
+
+    public String getDriverid() {
+        return driverid;
+    }
+
+    public void setDriverid(String driverid) {
+        this.driverid = driverid;
     }
 }

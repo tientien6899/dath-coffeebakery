@@ -102,15 +102,24 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.Holder>{
         });
 
         String tt = re.getTrangthai();
-        if(tt.contains("Hoàn thành")){
-            holder.trangthai.setText(tt);
-            holder.trangthai.setTextColor(Color.GREEN);
-        } else if(tt.contains("Đang xử lý")){
-            holder.trangthai.setText(tt + "...");
-            holder.trangthai.setTextColor(Color.BLUE);
-        } else {
-            holder.trangthai.setText(tt);
-            holder.trangthai.setTextColor(Color.RED);
+        switch (tt){
+            case "Hoàn thành":
+            case "Đang vận đơn":
+                holder.trangthai.setText(tt);
+                holder.trangthai.setTextColor(Color.GREEN);
+                break;
+            case "Đang xử lý":
+                holder.trangthai.setText(tt);
+                holder.trangthai.setTextColor(Color.BLUE);
+                break;
+            case "Đang chuẩn bị đơn":
+                holder.trangthai.setText(tt);
+                holder.trangthai.setTextColor(Color.YELLOW);
+                break;
+            case "Hủy đơn":
+                holder.trangthai.setText(tt);
+                holder.trangthai.setTextColor(Color.RED);
+                break;
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

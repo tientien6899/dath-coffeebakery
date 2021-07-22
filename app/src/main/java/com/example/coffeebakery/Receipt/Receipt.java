@@ -11,12 +11,13 @@ public class Receipt {
     String sonha;
     String ship;
     String tamtinh;
+    String driverid;
 
     public Receipt() {
     }
 
     public Receipt(String madon, String ngaydat, String trangthai, String tongtien, String nguoidung,
-                   String hoten, String sdt, String sonha, String ship, String tamtinh) {
+                   String hoten, String sdt, String sonha, String ship, String tamtinh, String driverid) {
         this.madon = madon;
         this.ngaydat = ngaydat;
         this.trangthai = trangthai;
@@ -27,6 +28,7 @@ public class Receipt {
         this.sonha = sonha;
         this.ship = ship;
         this.tamtinh = tamtinh;
+        this.driverid = driverid;
     }
 
     public String getMadon() {
@@ -107,6 +109,14 @@ public class Receipt {
 
     public void setTamtinh(String tamtinh) {
         this.tamtinh = tamtinh;
+    }
+
+    public String getDriverid() {
+        return driverid;
+    }
+
+    public void setDriverid(String driverid) {
+        this.driverid = driverid;
     }
 
 }

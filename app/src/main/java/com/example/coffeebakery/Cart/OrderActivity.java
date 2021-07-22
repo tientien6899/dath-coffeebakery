@@ -109,19 +109,8 @@ public class OrderActivity extends AppCompatActivity {
                 for(DataSnapshot data : snapshot.getChildren()){
                     String temp_gh = data.child("giohang").getValue().toString();
                     if(temp_gh.contains("Cart"+STT)){
-                        String temp_sttgh = data.child("sttgiohang").getValue().toString();
-                        String temp_ma = data.child("ma").getValue().toString();
-                        String temp_ten = data.child("ten").getValue().toString();
-                        String temp_gia = data.child("gia").getValue().toString();
-                        String temp_soluong = data.child("soluong").getValue().toString();
-                        String temp_hinhanh = data.child("hinhanh").getValue().toString();
-                        String temp_tongtien = data.child("tongtien").getValue().toString();
-                        String temp_kichthuoc = data.child("kichthuoc").getValue().toString();
-                        String temp_ghichu = data.child("ghichu").getValue().toString();
-                        String temp_nguoidung = data.child("nguoidung").getValue().toString();
-
-                        listCart.add(new Cart(temp_sttgh,temp_gh,temp_ma,temp_ten,temp_gia,temp_soluong,
-                                temp_hinhanh,temp_tongtien,temp_kichthuoc,temp_ghichu,temp_nguoidung));
+                        Cart ca = data.getValue(Cart.class);
+                        listCart.add(ca);
                     }
                 }
                 adapter = new OrderAdapter(listCart,context);
@@ -197,9 +186,10 @@ public class OrderActivity extends AppCompatActivity {
                                     Calendar calendar = Calendar.getInstance();
                                     String ngay = dateformat.format(calendar.getTime());
                                     String trangthai = "Đang xử lý";
+
                                     Receipt re = new Receipt(string_stt,ngay,trangthai,tongthanhtien.getText().toString().trim(),
                                             uid,hoten.getText().toString(),sdt.getText().toString(),sonha.getText().toString(),
-                                            phigiaohang.getText().toString(), tamtinh.getText().toString());
+                                            phigiaohang.getText().toString(), tamtinh.getText().toString(), "");
 
                                     tamtinhdonhang = 0;
                                     //tạo đơn hàng
@@ -212,29 +202,16 @@ public class OrderActivity extends AppCompatActivity {
                                         for(DataSnapshot data : snapshot.getChildren()){
                                             String gh = data.child("giohang").getValue().toString();
                                             if(gh.contains("Cart"+STT)){
-                                                String string_ghichu = data.child("ghichu").getValue().toString();
-                                                String string_gia = data.child("gia").getValue().toString();
-                                                String string_giohang = string_stt + "";
-                                                String string_hinhanh = data.child("hinhanh").getValue().toString();
-                                                String string_kichthuoc = data.child("kichthuoc").getValue().toString();
-                                                String string_ma = data.child("ma").getValue().toString();
-                                                String string_nguoidung = data.child("nguoidung").getValue().toString();
-                                                String string_soluong = data.child("soluong").getValue().toString();
-                                                String string_sttgiohang = data.child("sttgiohang").getValue().toString();
-                                                String string_ten = data.child("ten").getValue().toString();
-                                                String string_tongtien = data.child("tongtien").getValue().toString();
+                                                Cart ca = data.getValue(Cart.class);
 
-                                                Cart c = new Cart(string_sttgiohang,string_giohang,string_ma,
-                                                        string_ten,string_gia,string_soluong,string_hinhanh,
-                                                        string_tongtien,string_kichthuoc,string_ghichu,string_nguoidung);
-
-                                                mData.child("Sản Phẩm").addValueEventListener(new ValueEventListener() {
+                                                mData.child("Sản Phẩm").addListenerForSingleValueEvent(new ValueEventListener() {
                                                     @Override
                                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                         for (DataSnapshot snap : snapshot.getChildren()){
                                                             Product pro = snap.getValue(Product.class);
-                                                            if(pro.getMasp().contains(string_ma)){
-                                                                pro.setLuotMua(Integer.parseInt(string_soluong));
+                                                            if(pro.getMasp().contains(ca.getMa())){
+                                                                int temp_lmua = pro.getLuotMua();
+                                                                pro.setLuotMua(temp_lmua + Integer.parseInt(ca.getSoluong()));
                                                                 mData.child("Sản Phẩm").child(pro.getMasp()).setValue(pro);
                                                             }
                                                         }
@@ -245,8 +222,7 @@ public class OrderActivity extends AppCompatActivity {
 
                                                     }
                                                 });
-                                                mData.child("Đơn hàng").child("Chi tiết").child(c.getGiohang()).child(c.getSttgiohang()).setValue(c);
-
+                                                mData.child("Đơn hàng").child("Chi tiết").child(ca.getGiohang()).child(ca.getSttgiohang()).setValue(ca);
                                             }
                                         }
                                     }

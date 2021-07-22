@@ -63,7 +63,8 @@ public class CartFragment extends Fragment {
                                         snapshot.child("tongtien").getValue().toString(),
                                         snapshot.child("kichthuoc").getValue().toString(),
                                         snapshot.child("ghichu").getValue().toString(),
-                                        snapshot.child("nguoidung").getValue().toString());
+                                        snapshot.child("nguoidung").getValue().toString(),
+                                        snapshot.child("driverid").getValue().toString());
                             }
                         })
                         .build();

@@ -11,13 +11,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 import com.example.coffeebakery.CSKHActivity;
 import com.example.coffeebakery.DevelopingActivity;
 import com.example.coffeebakery.LoginActivity;
-import com.example.coffeebakery.ProfileActivity;
 import com.example.coffeebakery.R;
 import com.example.coffeebakery.Receipt.ReceiptsActivity;
 import com.example.coffeebakery.Setting.ChinhSach.ChinhSachActivity;
@@ -35,7 +37,8 @@ public class SettingFragment extends Fragment {
     LinearLayout thongtintaikhoan, doimatkhau, sodiachi, thongtinthanhtoan, donhangcuatoi, danhsachyeuthich, vechungtoi, lienhecskh, chinhsachdieukhoan;
     Button dangxuat;
     FirebaseAuth mAuth;
-    TextView hotenuser, mail;
+    TextView hotenuser, mail, tongtieu, tongdon;
+    ImageView avatar;
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -44,15 +47,55 @@ public class SettingFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_setting, container, false);
 
+        tongtieu = v.findViewById(R.id.txt_Tongchitieu);
+        tongdon = v.findViewById(R.id.txt_Tongdonhang);
+        mData.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int t = 0, d = 0;
+                if(snapshot.exists()){
+                    for(DataSnapshot data : snapshot.getChildren()){
+                        String temp_userid = data.child("nguoidung").getValue().toString();
+                        if(uid.contains(temp_userid) && data.child("trangthai").getValue().toString().contains("Hoàn thành")){
+                            String temp_to = data.child("tongtien").getValue().toString();
+                            t += Integer.parseInt(temp_to.replace(".",""));
+                            d++;
+                        }
+                    }
+                }
+                if(t == 0)
+                    tongtieu.setText("0");
+                if(t >= 1000000){
+                    int trieu = t / 1000000;
+                    int ngan = t % 1000000;
+                    if(ngan >= 1000){
+                        int tram = ngan / 1000;
+                        tongtieu.setText(trieu + "." + tram + ".000");
+                    }
+                }else {
+                    if(t >= 1000){
+                        int ngan = t / 1000;
+                        tongtieu.setText(ngan + ".000");
+                    }
+                }
+                tongdon.setText(d + "");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         hotenuser = v.findViewById(R.id.txt_Hoten);
         mail = v.findViewById(R.id.txt_email);
-
+        avatar = v.findViewById(R.id.img_Anhdaidien);
         mData.child("Khách hàng").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     hotenuser.setText(snapshot.child("hoten").getValue().toString());
                     mail.setText(snapshot.child("gmail").getValue().toString());
+                    Glide.with(v.getContext()).load(snapshot.child("avatar").getValue().toString()).into(avatar);
                 }
             }
 

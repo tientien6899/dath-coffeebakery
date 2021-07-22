@@ -65,7 +65,7 @@
         <activity android:name=".DetailProductActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".Setting.ProfileActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
     </application>

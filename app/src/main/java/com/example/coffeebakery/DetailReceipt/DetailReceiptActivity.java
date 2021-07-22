@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -16,16 +17,21 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.coffeebakery.Cart.Cart;
 import com.example.coffeebakery.DetailReceipt.helpers.FirebaseEventListenerHelper;
 import com.example.coffeebakery.DetailReceipt.helpers.GoogleMapHelper;
 import com.example.coffeebakery.DetailReceipt.helpers.MarkerAnimationHelper;
 import com.example.coffeebakery.DetailReceipt.helpers.UiHelper;
 import com.example.coffeebakery.DetailReceipt.interfaces.FirebaseDriverListener;
 import com.example.coffeebakery.DetailReceipt.interfaces.LatLngInterpolator;
+import com.example.coffeebakery.HomeActivity;
 import com.example.coffeebakery.R;
+import com.example.coffeebakery.Receipt.Receipt;
 import com.example.coffeebakery.Receipt.ReceiptsActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -48,7 +54,8 @@ import static com.example.coffeebakery.SplashActivity.uid;
 import static com.example.coffeebakery.SplashActivity.gmail;
 public class DetailReceiptActivity extends AppCompatActivity implements FirebaseDriverListener {
 
-    TextView ten_kh, sdt_kh, diachi, madon, ngaydat, thanhtien, tongmon, tongcong, phigh, trochuyen;
+    TextView ten_kh, sdt_kh, diachi, madon, ngaydat, thanhtien, tongmon, tongcong, phigh, huydon, tentaixe, sdttaixe;
+    ImageView avatartaixe;
     RecyclerView recyclerView;
     DetailReveiptAdapter adapter;
     ArrayList<DetailReceipt> listchitiet;
@@ -85,6 +92,7 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_receipt);
+        Context context = getApplicationContext();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.supportMap);
         uiHelper = new UiHelper(this);
         assert mapFragment != null;
@@ -109,22 +117,47 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
         data.child("Đơn hàng").child("Thông tin").child(md).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String userid = snapshot.child("nguoidung").getValue().toString();
-                String tep_md = snapshot.child("madon").getValue().toString();
-                String temp_hoten = snapshot.child("hoten").getValue().toString();
-                String temp_sdt = snapshot.child("sdt").getValue().toString();
-                String temp_sonha = snapshot.child("sonha").getValue().toString();
-                String temp_ngaydat = snapshot.child("ngaydat").getValue().toString();
-                String temp_tamtinh = snapshot.child("tamtinh").getValue().toString();
-                String temp_thanhtien = snapshot.child("tongtien").getValue().toString();
-                String temp_ship = snapshot.child("ship").getValue().toString();
-                ten_kh.setText(temp_hoten);
-                sdt_kh.setText(temp_sdt);
-                diachi.setText(temp_sonha);
-                ngaydat.setText(temp_ngaydat);
-                tongcong.setText(temp_thanhtien);
-                phigh.setText(temp_ship);
-                thanhtien.setText(temp_tamtinh);
+                if(snapshot.exists()){
+                    Receipt re = snapshot.getValue(Receipt.class);
+                    if(re.getDriverid() != ""){
+                        data.child("Tài xế").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    for(DataSnapshot data : snapshot.getChildren()){
+                                        String driverid = data.child("driverid").getValue().toString();
+                                        if(re.getDriverid().contains(driverid)){
+                                            String temp_tentaixe = data.child("driverName").getValue().toString();
+                                            String temp_sdttaixe = data.child("driverPhone").getValue().toString();
+                                            tentaixe.setText(temp_tentaixe);
+                                            sdttaixe.setText(temp_sdttaixe);
+                                            Glide.with(context).load(data.child("avatar").getValue().toString()).into(avatartaixe);
+                                        }
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+                    else {
+                        tentaixe.setText("Đang tìm kiếm tài xế!");
+                        sdttaixe.setText("");
+                    }
+                    ten_kh.setText(re.getHoten());
+                    sdt_kh.setText(re.getSdt());
+                    diachi.setText(re.getSonha());
+                    ngaydat.setText(re.getNgaydat());
+                    tongcong.setText(re.getTongtien());
+                    phigh.setText(re.getShip());
+                    thanhtien.setText(re.getTamtinh());
+                    if(!re.getTrangthai().contains("Đang xử lý")){
+                        huydon.setVisibility(View.GONE);
+                    }
+                }
             }
 
             @Override
@@ -162,11 +195,31 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
             }
         });
 
-        //su kien chuyen sang trang tro chuyen
-        trochuyen.setOnClickListener(new View.OnClickListener() {
+        huydon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //gan su kien
+                String temp_madonhang = madon.getText().toString();
+                data.child("Đơn hàng").child("Thông tin").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            for(DataSnapshot data1 : snapshot.getChildren()){
+                                Receipt re = data1.getValue(Receipt.class);
+                                if(re.getMadon().contains(temp_madonhang)){
+                                    re.setTrangthai("Hủy đơn");
+                                    data.child("Đơn hàng").child("Thông tin").child(temp_madonhang).setValue(re);
+                                    Toast.makeText(context, "Bạn đã hủy đơn hàng!", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(DetailReceiptActivity.this, HomeActivity.class));
+                                }
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
             }
         });
@@ -247,13 +300,6 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
         MarkerAnimationHelper.animateMarkerToGB(marker, new LatLng(driver.getLat(), driver.getLng()), new LatLngInterpolator.Spherical());
     }
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_detail_receipt);
-//
-//    }
-
     private void AnhXa() {
         ten_kh = (TextView) findViewById(R.id.txt_Tenkhachhang);
         sdt_kh = (TextView) findViewById(R.id.txt_SDTkhachhang);
@@ -265,7 +311,10 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
         tongmon = (TextView) findViewById(R.id.txt_Soluongmon);
         tongcong = (TextView) findViewById(R.id.txt_Tongcong);
         phigh = (TextView) findViewById(R.id.txt_chitietphigiaohang);
-        trochuyen = findViewById(R.id.txt_trochuyentaixe);
+        huydon = findViewById(R.id.txt_huydonhang);
+        tentaixe = findViewById(R.id.txt_Tentaixe);
+        sdttaixe = findViewById(R.id.txt_SDTtaixe);
+        avatartaixe = findViewById(R.id.img_avatartaixe);
     }
 
     public void back(View view) {
