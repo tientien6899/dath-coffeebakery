@@ -39,14 +39,16 @@ public class CoffeeActivity extends AppCompatActivity {
         mData.child("Cà phê - Trà").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot snap : snapshot.getChildren()){
-                    Product p = snap.getValue(Product.class);
-                    productArrayList.add(p);
+                if(snapshot.exists()){
+                    for(DataSnapshot snap : snapshot.getChildren()){
+                        Product p = snap.getValue(Product.class);
+                        productArrayList.add(p);
+                    }
+                    adapter = new ProductAdapter(productArrayList,CoffeeActivity.this);
+                    LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(CoffeeActivity.this);
+                    danhsach.setAdapter(adapter);
+                    danhsach.setLayoutManager(linearLayoutManager1);
                 }
-                adapter = new ProductAdapter(productArrayList,CoffeeActivity.this);
-                LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(CoffeeActivity.this);
-                danhsach.setAdapter(adapter);
-                danhsach.setLayoutManager(linearLayoutManager1);
             }
 
             @Override

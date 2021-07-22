@@ -186,6 +186,7 @@ public class OrderActivity extends AppCompatActivity {
                                     Calendar calendar = Calendar.getInstance();
                                     String ngay = dateformat.format(calendar.getTime());
                                     String trangthai = "Đang xử lý";
+
                                     Receipt re = new Receipt(string_stt,ngay,trangthai,tongthanhtien.getText().toString().trim(),
                                             uid,hoten.getText().toString(),sdt.getText().toString(),sonha.getText().toString(),
                                             phigiaohang.getText().toString(), tamtinh.getText().toString(), "");

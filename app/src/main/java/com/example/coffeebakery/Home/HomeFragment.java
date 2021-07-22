@@ -69,14 +69,16 @@ public class HomeFragment extends Fragment {
         NewData.child("Poster").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot snap : snapshot.getChildren()){
-                    Poster pt = snap.getValue(Poster.class);
-                    posterArrayList.add(pt);
+                if(snapshot.exists()){
+                    for(DataSnapshot snap : snapshot.getChildren()){
+                        Poster pt = snap.getValue(Poster.class);
+                        posterArrayList.add(pt);
+                    }
+                    posterAdapter = new PosterAdapter(v.getContext(), posterArrayList);
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext(),LinearLayoutManager.HORIZONTAL, false);
+                    poster.setAdapter(posterAdapter);
+                    poster.setLayoutManager(linearLayoutManager);
                 }
-                posterAdapter = new PosterAdapter(v.getContext(), posterArrayList);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(v.getContext(),LinearLayoutManager.HORIZONTAL, false);
-                poster.setAdapter(posterAdapter);
-                poster.setLayoutManager(linearLayoutManager);
             }
 
             @Override
