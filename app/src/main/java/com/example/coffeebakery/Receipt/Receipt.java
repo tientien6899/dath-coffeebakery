@@ -6,16 +6,27 @@ public class Receipt {
     String trangthai;
     String tongtien;
     String nguoidung;
+    String hoten;
+    String sdt;
+    String sonha;
+    String ship;
+    String tamtinh;
 
     public Receipt() {
     }
 
-    public Receipt(String madon, String ngaydat, String trangthai, String tongtien, String nguoidung) {
+    public Receipt(String madon, String ngaydat, String trangthai, String tongtien, String nguoidung,
+                   String hoten, String sdt, String sonha, String ship, String tamtinh) {
         this.madon = madon;
         this.ngaydat = ngaydat;
         this.trangthai = trangthai;
         this.tongtien = tongtien;
         this.nguoidung = nguoidung;
+        this.hoten = hoten;
+        this.sdt = sdt;
+        this.sonha = sonha;
+        this.ship = ship;
+        this.tamtinh = tamtinh;
     }
 
     public String getMadon() {
@@ -56,6 +67,46 @@ public class Receipt {
 
     public void setNguoidung(String nguoidung) {
         this.nguoidung = nguoidung;
+    }
+
+    public String getHoten() {
+        return hoten;
+    }
+
+    public void setHoten(String hoten) {
+        this.hoten = hoten;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
+    public String getSonha() {
+        return sonha;
+    }
+
+    public void setSonha(String sonha) {
+        this.sonha = sonha;
+    }
+
+    public String getShip() {
+        return ship;
+    }
+
+    public void setShip(String ship) {
+        this.ship = ship;
+    }
+
+    public String getTamtinh() {
+        return tamtinh;
+    }
+
+    public void setTamtinh(String tamtinh) {
+        this.tamtinh = tamtinh;
     }
 
 }

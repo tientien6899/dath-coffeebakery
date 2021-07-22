@@ -26,11 +26,11 @@
                 android:text="Thông tin tài khoản"
                 android:textColor="@color/green"
                 android:textSize="23sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/nunito_bold" />
 
             <Button
                 android:id="@+id/btn_Dongy"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_gravity="bottom|right"
                 android:layout_marginRight="22dp"
@@ -38,7 +38,8 @@
                 android:text="Lưu"
                 android:textAllCaps="false"
                 android:textColor="@color/blue"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                android:fontFamily="@font/nunito_bold"/>
         </LinearLayout>
 
         <ScrollView
@@ -54,8 +55,8 @@
                     android:id="@+id/img_Avatar"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginTop="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/ic_outline_image_24" />
 
                 <TextView
@@ -65,7 +66,9 @@
                     android:layout_marginTop="20dp"
                     android:text="Họ tên"
                     android:textColor="@color/gray"
-                    android:textSize="17dp" />
+                    android:fontFamily="@font/nunito"
+                    android:textSize="17dp"
+                    />
 
                 <EditText
                     android:id="@+id/edt_hoten"
@@ -74,11 +77,13 @@
                     android:layout_marginLeft="22dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="22dp"
-                    android:paddingLeft="20dp"
-                    android:background="@drawable/edt_ghichu"
+                    android:background="@drawable/edt_trang"
                     android:hint="Nhập họ tên"
                     android:inputType="text"
-                    android:textColor="@color/black"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito"
                     android:textSize="16dp" />
 
                 <TextView
@@ -88,6 +93,7 @@
                     android:layout_marginTop="30dp"
                     android:text="Số điện thoại"
                     android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito"
                     android:textSize="17dp" />
 
                 <EditText
@@ -97,11 +103,13 @@
                     android:layout_marginLeft="22dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="22dp"
-                    android:background="@drawable/edt_ghichu"
+                    android:background="@drawable/edt_trang"
                     android:hint="Nhập số điện thoại"
                     android:inputType="phone"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/black"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito"
                     android:textSize="16dp" />
 
                 <TextView
@@ -111,6 +119,7 @@
                     android:layout_marginTop="30dp"
                     android:text="Địa chỉ"
                     android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito"
                     android:textSize="17dp" />
 
                 <EditText
@@ -120,11 +129,13 @@
                     android:layout_marginLeft="22dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="22dp"
-                    android:background="@drawable/edt_ghichu"
-                    android:hint="Nhập tên sản phẩm ..."
+                    android:background="@drawable/edt_trang"
+                    android:hint="Nhập địa chỉ"
                     android:inputType="text"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/black"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito"
                     android:textSize="16dp" />
 
                 <TextView
@@ -134,6 +145,7 @@
                     android:layout_marginTop="30dp"
                     android:text="Tên đăng nhập"
                     android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito"
                     android:textSize="17dp" />
 
                 <TextView
@@ -143,10 +155,12 @@
                     android:layout_marginLeft="22dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="22dp"
-                    android:background="@drawable/edt_ghichu"
-                    android:inputType="number"
+                    android:background="@drawable/edt_trang"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/black"
+                    android:paddingTop="14dp"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito"
                     android:textSize="16dp" />
 
             </LinearLayout>

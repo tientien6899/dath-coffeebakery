@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = LayoutInflater.from(inflater.getContext()).inflate(R.layout.fragment_home, container, false);
-        NewData = FirebaseDatabase.getInstance().getReference();
+        NewData = FirebaseDatabase.getInstance().getReference(); //lay duong dan goc tu firebase
 
         //danh sach poster
         poster = (RecyclerView) v.findViewById(R.id.rcv_Poster);
@@ -95,7 +95,7 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
                     Product p = snap.getValue(Product.class);
-                    if(p.getSPMoi())
+                    if(p.getSPMoi()) //mac dinh la true
                         newProductArrayList.add(p);
 
                 }
@@ -122,7 +122,7 @@ public class HomeFragment extends Fragment {
                 for(DataSnapshot snap : snapshot.getChildren()){
                     Product p = snap.getValue(Product.class);
                     int temp_mua = p.getLuotMua();
-                    if(temp_mua > 0)
+                    if(temp_mua > 10)
                         banchayArrayList.add(p);
                 }
                 banchayAdapter = new BanChayAdapter(banchayArrayList,v.getContext());
@@ -139,9 +139,10 @@ public class HomeFragment extends Fragment {
 
         //danh sach tap chi
         tapchi = (RecyclerView) v.findViewById(R.id.rcv_Tapchi);
+        //custom cho recycleview scroll ngang
         tapchi.setLayoutManager(new LinearLayoutManager(v.getContext(), LinearLayoutManager.HORIZONTAL, false));
         tapchi.setItemAnimator(new DefaultItemAnimator());
-        tapChiArrayList = new ArrayList<TapChi>();
+        tapChiArrayList = new ArrayList<TapChi>(); //luu danh sach lay ve tu db thanh mang
         NewData.child("Post").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -149,9 +150,9 @@ public class HomeFragment extends Fragment {
                     TapChi tc = snap.getValue(TapChi.class);
                     tapChiArrayList.add(tc);
                 }
-                tapChiAdapter = new TapChiAdapter(tapChiArrayList,v.getContext());
+                tapChiAdapter = new TapChiAdapter(tapChiArrayList,v.getContext()); //gan du lieu lay tu mang
                 LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(v.getContext(),LinearLayoutManager.HORIZONTAL, false);
-                tapchi.setAdapter(tapChiAdapter);
+                tapchi.setAdapter(tapChiAdapter); //set dât cho recycleview
                 tapchi.setLayoutManager(linearLayoutManager1);
             }
 

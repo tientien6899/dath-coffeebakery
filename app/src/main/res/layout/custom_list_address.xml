@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="19dp"
+    android:layout_marginLeft="22dp"
+    android:layout_marginRight="22dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_hoten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:hint="Nguyễn Thị Cẩm Tiên"
+            android:textColor="@color/gray"
+            android:textSize="15sp"
+            android:fontFamily="@font/nunito_bold"/>
+
+        <ImageView
+            android:id="@+id/txt_xoadiachi"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_baseline_clear_24" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_sdt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|left"
+        android:hint="0838532354"
+        android:textColor="@color/gray"
+        android:textSize="13sp"
+        android:fontFamily="@font/nunito"/>
+
+    <TextView
+        android:id="@+id/txt_sonha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:hint="67/25 Bờ Bao Tân Thắng, p. Sơn Kỳ, q. Tân Phú, TPHCM"
+        android:textColor="@color/gray"
+        android:textSize="13sp"
+        android:fontFamily="@font/nunito"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/whitegray" />
+
+</LinearLayout>

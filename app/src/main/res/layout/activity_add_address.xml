@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".Setting.ListAddress.AddAddressActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:text="Địa chỉ mới"
+            android:textColor="@color/green"
+            android:textSize="23sp"
+            android:fontFamily="@font/nunito_bold" />
+
+        <Button
+            android:id="@+id/txt_luu"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="22dp"
+            android:background="@drawable/button_luu"
+            android:text="Lưu"
+            android:textAllCaps="false"
+            android:textColor="@color/blue"
+            android:textSize="17sp"
+            android:fontFamily="@font/nunito_bold"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="20dp"
+                android:text="Họ tên"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
+                android:textSize="17dp" />
+
+            <EditText
+                android:id="@+id/edt_hoten"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="22dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="@drawable/edt_trang"
+                android:hint="Nhập họ tên"
+                android:inputType="text"
+                android:textColor="@color/gray"
+                android:textSize="16dp"
+                android:fontFamily="@font/nunito"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="30dp"
+                android:text="Số điện thoại"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
+                android:textSize="17dp" />
+
+            <EditText
+                android:id="@+id/edt_sdt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="22dp"
+                android:background="@drawable/edt_trang"
+                android:hint="Nhập số điện thoại"
+                android:inputType="phone"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="30dp"
+                android:text="Địa chỉ"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
+                android:textSize="17dp" />
+
+            <EditText
+                android:id="@+id/edt_sonha"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="22dp"
+                android:background="@drawable/edt_trang"
+                android:hint="Nhập địa chỉ"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -36,7 +36,7 @@ public class TapChiAdapter extends RecyclerView.Adapter<TapChiAdapter.Holder> {
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         TapChi tc = (TapChi) mTapchi.get(position);
         holder.tieude.setText(tc.getTieude());
-        holder.noidung.setText(tc.getNoidung());
+//        holder.noidung.setText(tc.getNoidung());
         Glide.with(holder.hinhanh.getContext()).load(tc.getHinhanh()).into(holder.hinhanh);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

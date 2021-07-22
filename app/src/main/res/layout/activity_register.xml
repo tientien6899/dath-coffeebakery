@@ -13,17 +13,17 @@
         android:layout_height="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/ic_outline_keyboard_backspace_24"/>
+        android:background="@drawable/ic_outline_keyboard_backspace_24" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/nunito_bold"
         android:text="Đăng ký tài khoản"
         android:textColor="@color/green"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,10 +36,11 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:background="@drawable/edt_trang"
+            android:fontFamily="@font/nunito"
             android:hint="Tên đăng nhập"
             android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
-            android:textColor="@color/green"
+            android:textColor="@color/gray"
             android:textSize="15dp" />
 
         <EditText
@@ -48,10 +49,11 @@
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/edt_trang"
+            android:fontFamily="@font/nunito"
             android:hint="Mật khẩu"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
-            android:textColor="@color/green"
+            android:textColor="@color/gray"
             android:textSize="15dp" />
 
         <EditText
@@ -60,35 +62,14 @@
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/edt_trang"
+            android:fontFamily="@font/nunito"
             android:hint="Nhập lại mật khẩu"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
-            android:textColor="@color/green"
+            android:textColor="@color/gray"
             android:textSize="15dp" />
 
-        <EditText
-            android:id="@+id/edt_Hoten"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/edt_trang"
-            android:hint="Họ tên"
-            android:inputType="textPersonName"
-            android:paddingLeft="20dp"
-            android:textColor="@color/green"
-            android:textSize="15dp" />
 
-        <EditText
-            android:id="@+id/edt_SDT"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/edt_trang"
-            android:hint="Số điện thoại"
-            android:inputType="phone"
-            android:paddingLeft="20dp"
-            android:textColor="@color/green"
-            android:textSize="15dp" />
 
         <Button
             android:id="@+id/btn_Dangky"
@@ -100,7 +81,7 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/nunito_bold" />
     </LinearLayout>
 
 
@@ -114,18 +95,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bạn đã có tài khoản ?"
-            android:textColor="@color/black"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/nunito"
             android:textSize="17sp" />
 
         <TextView
             android:id="@+id/txt_Dangnhap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đăng nhập"
             android:layout_marginLeft="5dp"
+            android:text="Đăng nhập"
             android:textColor="@color/red"
             android:textSize="21sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/nunito_bold" />
     </LinearLayout>
 
 </LinearLayout>

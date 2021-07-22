@@ -21,6 +21,6 @@
         android:text="Tính năng này hiện tại đang phát triển. Bạn vui lòng quay lại sau nhé !"
         android:textAlignment="center"
         android:textSize="19sp"
-        android:textStyle="bold" />
+        android:fontFamily="@font/nunito" />
 
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +17,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import static com.example.coffeebakery.LoginActivity.gmail;
+import static com.example.coffeebakery.SplashActivity.gmail;
+import static com.example.coffeebakery.SplashActivity.uid;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -29,13 +31,10 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
         Anhxa();
-
         txtusername.setText(gmail);
         mData = FirebaseDatabase.getInstance().getReference();
-
-        mData.child("KHACHHANG").child(gmail).addListenerForSingleValueEvent(new ValueEventListener() {
+        mData.child("Khách hàng").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
@@ -43,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
                     edthoten.setText(p.getHoten());
                     edtsdt.setText(p.getSdt());
                     edtsonhaduong.setText(p.getSonha());
+                    txtusername.setText(gmail);
                 }
             }
 
@@ -61,10 +61,12 @@ public class ProfileActivity extends AppCompatActivity {
                 p.sdt = edtsdt.getText().toString().trim();
                 p.sonha = edtsonhaduong.getText().toString().trim();
                 p.gmail = gmail;
+                p.userid = uid;
 
-                mData.child("KHACHHANG").child(p.getGmail()).setValue(p);
-
+                mData.child("Khách hàng").child(uid).setValue(p);
+                mData.child("Sổ địa chỉ").child(uid).child(p.hoten).setValue(p);
                 Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
+                Toast.makeText(ProfileActivity.this, "Cập nhật thông tin tài khoản thành công!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });

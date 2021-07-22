@@ -22,7 +22,7 @@
             android:text="Bánh ngọt"
             android:textColor="@color/green"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/nunito_bold"/>
 
     </LinearLayout>
 
@@ -41,9 +41,10 @@
             android:background="@drawable/search"
             android:inputType="text"
             android:queryHint="Tìm kiếm ..."
-            android:textColor="@color/black"
+            android:textColor="@color/gray"
             android:textColorHint="#7e7e7e"
-            android:textSize="11.7sp" />
+            android:textSize="11.7sp"
+            android:fontFamily="@font/nunito"/>
 
     </LinearLayout>
 

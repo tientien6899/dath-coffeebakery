@@ -35,19 +35,18 @@ public class DetailTapChiActivity extends AppCompatActivity {
         noidung.setText(ndg);
         Glide.with(this).load(img).into(hinhanh);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), HomeActivity.class);
-                startActivity(intent);
-            }
-        });
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(view.getContext(), HomeActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 
 
     private void AnhXa() {
-        back = findViewById(R.id.img_BackDSSP);
         tieude = findViewById(R.id.thongtintapchi_tieude);
         ngaydang = findViewById(R.id.thongtintapchi_ngaydang);
         noidung = findViewById(R.id.thongtintapchi_noidung);

@@ -21,7 +21,7 @@
             android:text="Liên hệ CSKH"
             android:textColor="@color/green"
             android:textSize="23sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/nunito_bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -52,7 +52,7 @@
                 android:text="Hotline"
                 android:textColor="@color/gray"
                 android:textSize="15dp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/nunito_semibold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -60,6 +60,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="08 3853 2354"
                 android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
                 android:textSize="13sp" />
 
         </LinearLayout>
@@ -75,11 +76,11 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="0.7dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="22dp"
-        android:layout_marginTop="10dp"
         android:layout_marginRight="22dp"
-        android:background="@color/green" />
+        android:background="@color/whitegray" />
 
     <LinearLayout
         android:id="@+id/CSKH_sms"
@@ -109,7 +110,7 @@
                 android:text="SMS"
                 android:textColor="@color/gray"
                 android:textSize="15dp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/nunito_semibold"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -117,6 +118,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="08 3853 2354"
                 android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
                 android:textSize="13sp" />
 
         </LinearLayout>
@@ -132,11 +134,11 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="0.7dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="22dp"
-        android:layout_marginTop="10dp"
         android:layout_marginRight="22dp"
-        android:background="@color/green" />
+        android:background="@color/whitegray" />
 
     <LinearLayout
         android:id="@+id/CSKH_email"
@@ -166,7 +168,7 @@
                 android:text="Email"
                 android:textColor="@color/gray"
                 android:textSize="15dp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/nunito_semibold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -174,6 +176,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="tientien.6899@gmail.com"
                 android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
                 android:textSize="13sp" />
 
         </LinearLayout>

@@ -23,10 +23,10 @@
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="30dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/nunito_bold"
                 android:text="Đổi mật khẩu"
                 android:textColor="@color/green"
-                android:textSize="23sp"
-                android:textStyle="bold" />
+                android:textSize="23sp" />
 
             <Button
                 android:id="@+id/btn_Luu"
@@ -35,6 +35,7 @@
                 android:layout_gravity="bottom|right"
                 android:layout_marginRight="22dp"
                 android:background="@drawable/button_luu"
+                android:fontFamily="@font/nunito_bold"
                 android:text="Lưu"
                 android:textAllCaps="false"
                 android:textColor="@color/blue"
@@ -54,17 +55,17 @@
             android:layout_marginLeft="22dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="22dp"
+            android:fontFamily="@font/nunito_bold"
             android:gravity="center"
             android:text="Bạn muốn đổi mật khẩu ?"
-            android:textSize="21sp"
-            android:textStyle="bold" />
+            android:textSize="21sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
-            android:layout_marginTop="15dp"
             android:layout_marginRight="22dp"
+            android:fontFamily="@font/nunito"
             android:gravity="center"
             android:text="Vui lòng điền mật khẩu hiện tại và mật khẩu mới."
             android:textSize="16sp" />
@@ -74,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="40dp"
+            android:fontFamily="@font/nunito"
             android:text="Mật khẩu hiện tại"
             android:textColor="@color/gray"
             android:textSize="17dp" />
@@ -85,11 +87,12 @@
             android:layout_marginLeft="22dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="22dp"
-            android:background="@drawable/edt_ghichu"
+            android:background="@drawable/edt_trang"
             android:hint="Nhập mật khẩu hiện tại"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
-            android:textColor="@color/black"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/nunito"
             android:textSize="16dp" />
 
         <TextView
@@ -97,6 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/nunito"
             android:text="Mật khẩu mới"
             android:textColor="@color/gray"
             android:textSize="17dp" />
@@ -108,11 +112,12 @@
             android:layout_marginLeft="22dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="22dp"
-            android:background="@drawable/edt_ghichu"
+            android:background="@drawable/edt_trang"
             android:hint="Nhập mật khẩu hiện tại"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
-            android:textColor="@color/black"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/nunito"
             android:textSize="16dp" />
 
         <TextView
@@ -120,6 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/nunito"
             android:text="Xác nhận mật khẩu mới"
             android:textColor="@color/gray"
             android:textSize="17dp" />
@@ -131,11 +137,12 @@
             android:layout_marginLeft="22dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="22dp"
-            android:background="@drawable/edt_ghichu"
+            android:background="@drawable/edt_trang"
             android:hint="Nhập lại mật khẩu mới"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
-            android:textColor="@color/black"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/nunito"
             android:textSize="16dp" />
 
     </LinearLayout>
