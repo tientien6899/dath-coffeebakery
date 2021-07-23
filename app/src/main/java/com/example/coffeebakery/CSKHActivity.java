@@ -84,7 +84,7 @@ public class CSKHActivity extends AppCompatActivity {
 
     private void sendEmail() {
         Log.i("Send email", "");
-        String[] TO = {""};
+        String[] TO = {"tientien.6899@gmail.com"};
         String[] CC = {""};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
@@ -92,13 +92,13 @@ public class CSKHActivity extends AppCompatActivity {
         emailIntent.setType("text/plain");
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your subject");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Email message goes here");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "");
 
         try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            startActivity(Intent.createChooser(emailIntent, "Đang gửi mail..."));
             finish();
-            Log.i("Finished sending email...", "");
+            Log.i("Đã hoàn thành gửi mail...", "");
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(CSKHActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
