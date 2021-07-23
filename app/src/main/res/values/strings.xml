@@ -20,4 +20,6 @@
         <item android:id="@+id/navigation_caidat" android:title="@string/title_caidat" />
     </menu>
 
+    <string name="ImageButton_contentDiscription">send</string>
+
 </resources>

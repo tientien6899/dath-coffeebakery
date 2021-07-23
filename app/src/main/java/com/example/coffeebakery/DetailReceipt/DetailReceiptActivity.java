@@ -13,16 +13,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.coffeebakery.Cart.Cart;
+import com.example.coffeebakery.ChatActivity;
 import com.example.coffeebakery.DetailReceipt.helpers.FirebaseEventListenerHelper;
 import com.example.coffeebakery.DetailReceipt.helpers.GoogleMapHelper;
 import com.example.coffeebakery.DetailReceipt.helpers.MarkerAnimationHelper;
@@ -56,6 +60,7 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
 
     TextView ten_kh, sdt_kh, diachi, madon, ngaydat, thanhtien, tongmon, tongcong, phigh, huydon, tentaixe, sdttaixe;
     ImageView avatartaixe;
+    ImageButton goidientaixe, nhantintaixe;
     RecyclerView recyclerView;
     DetailReveiptAdapter adapter;
     ArrayList<DetailReceipt> listchitiet;
@@ -163,6 +168,22 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        goidientaixe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:" + sdttaixe.getText().toString()));
+                startActivity(callIntent);
+            }
+        });
+        nhantintaixe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DetailReceiptActivity.this, ChatActivity.class);
+                intent.putExtra("ten_kh", ten_kh.getText().toString());
+                startActivity(intent);
             }
         });
 
@@ -315,6 +336,8 @@ public class DetailReceiptActivity extends AppCompatActivity implements Firebase
         tentaixe = findViewById(R.id.txt_Tentaixe);
         sdttaixe = findViewById(R.id.txt_SDTtaixe);
         avatartaixe = findViewById(R.id.img_avatartaixe);
+        goidientaixe = (ImageButton) findViewById(R.id.goidientaixe);
+        nhantintaixe = (ImageButton) findViewById(R.id.nhantintaixe);
     }
 
     public void back(View view) {
