@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.coffeebakery.CSKHActivity;
@@ -28,6 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+
 import static com.example.coffeebakery.HomeActivity.mData;
 import static com.example.coffeebakery.SplashActivity.gmail;
 import static com.example.coffeebakery.SplashActivity.uid;
@@ -39,9 +41,11 @@ public class SettingFragment extends Fragment {
     FirebaseAuth mAuth;
     TextView hotenuser, mail, tongtieu, tongdon;
     ImageView avatar;
+
     public SettingFragment() {
         // Required empty public constructor
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -53,27 +57,32 @@ public class SettingFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int t = 0, d = 0;
-                if(snapshot.exists()){
-                    for(DataSnapshot data : snapshot.getChildren()){
+                if (snapshot.exists()) {
+                    for (DataSnapshot data : snapshot.getChildren()) {
+                        //Lay userid trong node Don Hang trong firebase
                         String temp_userid = data.child("nguoidung").getValue().toString();
-                        if(uid.contains(temp_userid) && data.child("trangthai").getValue().toString().contains("Hoàn thành")){
+                        //Kiem tra uid dang dang nhap = uid co lay trong don hang ko & trang thai DH hoan thanh
+                        if (uid.contains(temp_userid) && data.child("trangthai").getValue().toString().contains("Hoàn thành")) {
+                            //Lay tong tien trong don hang
                             String temp_to = data.child("tongtien").getValue().toString();
-                            t += Integer.parseInt(temp_to.replace(".",""));
+                            //Cong tong tien vao t
+                            t += Integer.parseInt(temp_to.replace(".", ""));
+                            //Tang d
                             d++;
                         }
                     }
                 }
-                if(t == 0)
+                if (t == 0)
                     tongtieu.setText("0");
-                if(t >= 1000000){
+                if (t >= 1000000) {
                     int trieu = t / 1000000;
                     int ngan = t % 1000000;
-                    if(ngan >= 1000){
+                    if (ngan >= 1000) {
                         int tram = ngan / 1000;
                         tongtieu.setText(trieu + "." + tram + ".000");
                     }
-                }else {
-                    if(t >= 1000){
+                } else {
+                    if (t >= 1000) {
                         int ngan = t / 1000;
                         tongtieu.setText(ngan + ".000");
                     }
@@ -92,7 +101,7 @@ public class SettingFragment extends Fragment {
         mData.child("Khách hàng").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     hotenuser.setText(snapshot.child("hoten").getValue().toString());
                     mail.setText(snapshot.child("gmail").getValue().toString());
                     Glide.with(v.getContext()).load(snapshot.child("avatar").getValue().toString()).into(avatar);
